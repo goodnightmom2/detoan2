@@ -3,587 +3,466 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đề Kiểm Tra Cuối Kỳ 1 Toán 11</title>
+    <title>Đề Thi Cuối Kỳ 1 Toán 11 - Theo Ma Trận Đặc Tả</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        :root {
-            --primary: #0056b3;
-            --secondary: #6c757d;
-            --success: #198754;
-            --danger: #dc3545;
-            --light: #f8f9fa;
-            --warning-bg: #fff3cd;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #eef2f6;
-            color: #333;
-            margin: 0;
-            padding-bottom: 80px;
-        }
-
-        /* HEADER & TIMER */
-        .sticky-header {
-            position: sticky;
-            top: 0;
-            background: white;
-            padding: 15px 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 4px solid var(--primary);
-        }
-
-        .timer-badge {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--danger);
-            background: #fff0f0;
-            padding: 5px 15px;
-            border-radius: 8px;
-            border: 2px solid var(--danger);
-            min-width: 100px;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 20px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        h1 { text-align: center; color: var(--primary); margin-bottom: 5px; text-transform: uppercase; }
-        .exam-info { text-align: center; color: #666; margin-bottom: 30px; font-style: italic; }
-
-        /* SECTIONS */
-        .part-header {
-            background-color: #e7f1ff;
-            color: var(--primary);
-            padding: 15px;
-            border-radius: 6px;
-            margin: 30px 0 20px 0;
-            border-left: 5px solid var(--primary);
-        }
-        .part-header h3 { margin: 0; font-size: 1.2rem; }
-        .part-header p { margin: 5px 0 0; font-size: 0.95rem; color: #444; }
-
-        /* QUESTIONS */
-        .question-card {
-            background: #fff;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-        .question-card:hover { border-color: #adb5bd; }
-
-        .q-title {
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin-bottom: 15px;
-            display: block;
-            color: #212529;
-        }
-
-        /* TABLES */
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95rem; }
-        th, td { border: 1px solid #ced4da; padding: 10px; text-align: center; }
-        th { background-color: #f8f9fa; color: var(--primary); font-weight: 600; }
-
-        /* MULTIPLE CHOICE OPTIONS */
-        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        @media (max-width: 768px) { .options-grid { grid-template-columns: 1fr; } }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #f4f6f8; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1, h2 { color: #2c3e50; }
+        h1 { text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 15px; margin-bottom: 30px; }
+        h2 { background-color: #eaf2f8; padding: 12px; border-left: 6px solid #3498db; margin-top: 40px; font-size: 1.3rem; border-radius: 4px; }
         
-        .option-label {
-            display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            border: 1px solid #ced4da;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .option-label:hover { background-color: #f8f9fa; }
-        input[type="radio"] { margin-right: 12px; transform: scale(1.2); cursor: pointer; }
-
-        /* TRUE/FALSE GRID */
-        .tf-table { width: 100%; border: none; }
-        .tf-table th, .tf-table td { border: none; border-bottom: 1px solid #eee; text-align: left; padding: 12px; }
-        .tf-table th:last-child, .tf-table th:nth-last-child(2),
-        .tf-table td:last-child, .tf-table td:nth-last-child(2) { text-align: center; width: 60px; }
-        .tf-header-row { background-color: #f1f3f5; }
-
-        /* SHORT ANSWER */
-        .short-input {
-            width: 100%; max-width: 300px;
-            padding: 10px; font-size: 1rem;
-            border: 2px solid #ced4da; border-radius: 6px;
-            margin-top: 5px;
-        }
-        .short-input:focus { border-color: var(--primary); outline: none; }
-
-        /* RESULTS & FEEDBACK */
-        .explanation {
-            display: none;
-            margin-top: 15px;
-            padding: 15px;
-            background-color: var(--warning-bg);
-            border-left: 4px solid #ffc107;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .explanation strong { color: #856404; }
-
-        .correct-card { border-color: var(--success); background-color: #f3fdf7; }
-        .wrong-card { border-color: var(--danger); background-color: #fff5f5; }
-
-        #result-board {
-            display: none;
-            text-align: center;
-            background: #d1e7dd;
-            padding: 30px;
-            border-radius: 12px;
-            border: 2px solid var(--success);
-            margin-bottom: 30px;
-        }
-        .final-score { font-size: 3rem; font-weight: 800; color: var(--success); line-height: 1; }
-
-        /* FOOTER */
-        .footer-bar {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: white; padding: 15px;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-            text-align: center; z-index: 999;
-        }
-        .btn-submit {
-            background-color: var(--primary); color: white;
-            border: none; padding: 12px 50px; border-radius: 50px;
-            font-size: 1.2rem; font-weight: 700; cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-        }
-        .btn-submit:hover { background-color: #004494; transform: translateY(-2px); }
-        .btn-submit:disabled { background-color: #adb5bd; cursor: not-allowed; transform: none; }
-
+        /* Đồng hồ đếm ngược */
+        .timer-sticky { position: sticky; top: 10px; background: #e74c3c; color: white; padding: 12px 25px; border-radius: 30px; text-align: center; font-weight: bold; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); width: fit-content; margin: 0 auto 20px auto; font-size: 1.1rem; }
+        
+        /* Khung câu hỏi */
+        .question-item { margin-bottom: 25px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background: #fff; transition: all 0.3s ease; }
+        .question-text { font-weight: 600; color: #34495e; margin-bottom: 15px; font-size: 1.05rem; }
+        
+        /* Trắc nghiệm lựa chọn */
+        .options label { display: block; margin-bottom: 10px; padding: 10px; border-radius: 6px; cursor: pointer; transition: background 0.2s; border: 1px solid transparent; }
+        .options label:hover { background-color: #f8f9fa; border-color: #dee2e6; }
+        
+        /* Trắc nghiệm Đúng Sai */
+        .tf-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .tf-table th, .tf-table td { border: 1px solid #dee2e6; padding: 12px; text-align: center; }
+        .tf-table th { background-color: #f1f3f5; color: #495057; }
+        .tf-table td:first-child { text-align: left; font-weight: 500; width: 70%; }
+        
+        /* Trả lời ngắn */
+        .short-ans-input { width: 100%; max-width: 300px; padding: 10px; border: 2px solid #dfe6e9; border-radius: 6px; font-size: 16px; transition: border 0.3s; }
+        .short-ans-input:focus { border-color: #3498db; outline: none; }
+        
+        /* Nút nộp bài */
+        .btn-submit { display: block; width: 100%; padding: 18px; background: #27ae60; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 40px; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn-submit:hover { background: #219150; }
+        .btn-submit:disabled { background: #95a5a6; cursor: not-allowed; box-shadow: none; }
+        
+        /* Kết quả và Giải thích */
+        .result-section { margin-top: 40px; padding: 25px; background: #d4edda; border: 2px solid #c3e6cb; border-radius: 8px; color: #155724; display: none; text-align: center; }
+        .explanation-box { display: none; margin-top: 15px; padding: 15px; background-color: #fff3cd; border-left: 5px solid #ffc107; font-size: 0.95em; border-radius: 4px; color: #856404; }
+        
+        /* Style cho đáp án đúng/sai khi chấm */
+        .correct-answer-bg { background-color: #d4edda !important; border: 1px solid #c3e6cb !important; }
+        .wrong-answer-bg { background-color: #f8d7da !important; border: 1px solid #f5c6cb !important; }
+        .correct-text { color: #28a745; font-weight: bold; }
+        .wrong-text { color: #dc3545; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="sticky-header">
-        <div style="font-weight: bold; font-size: 1.2rem;">TOÁN 11 - CUỐI KỲ 1</div>
-        <div class="timer-badge" id="timer">60:00</div>
-    </div>
+<div class="timer-sticky" id="timer">Thời gian còn lại: 60:00</div>
 
-    <div class="container">
-        <h1>ĐỀ KIỂM TRA CHÍNH THỨC</h1>
-        <div class="exam-info">Thời gian làm bài: 60 phút | Bám sát ma trận đặc tả</div>
+<div class="container">
+    <h1>ĐỀ KIỂM TRA CUỐI KỲ 1 TOÁN 11</h1>
+    <p style="text-align: center;"><i>(Cấu trúc bám sát Ma trận & Đặc tả )</i></p>
 
-        <div id="result-board">
-            <h3>KẾT QUẢ BÀI LÀM</h3>
-            <div class="final-score" id="score-display">0.0</div>
-            <p>Điểm trên thang 10</p>
-            <p style="font-style: italic;">(Kéo xuống dưới để xem đáp án và lời giải chi tiết)</p>
+    <form id="quizForm">
+        
+        <h2>PHẦN I. TRẮC NGHIỆM NHIỀU LỰA CHỌN (3,0 điểm)</h2>
+        <p><i>Thí sinh chọn 01 phương án đúng nhất cho mỗi câu hỏi. Mỗi câu đúng 0,3 điểm.</i></p>
+
+        <div class="question-item" id="q1-box">
+            <div class="question-text">Câu 1[cite: 7]: Công thức lượng giác nào sau đây sai?</div>
+            <div class="options">
+                <label><input type="radio" name="q1" value="A"> A. \(\sin^2 x + \cos^2 x = 1\)</label>
+                <label><input type="radio" name="q1" value="B"> B. \(1 + \tan^2 x = \frac{1}{\cos^2 x}\) (với \(\cos x \neq 0\))</label>
+                <label><input type="radio" name="q1" value="C"> C. \(\sin 2x = 2\sin x \cos x\)</label>
+                <label><input type="radio" name="q1" value="D"> D. \(\cos 2x = \sin^2 x - \cos^2 x\)</label>
+            </div>
+            <div class="explanation-box" id="exp-q1">
+                <b>Đáp án D.</b><br>
+                Công thức đúng là \(\cos 2x = \cos^2 x - \sin^2 x\).
+            </div>
         </div>
 
-        <form id="quiz-form">
-            
-            <div class="part-header">
-                <h3>PHẦN I. TRẮC NGHIỆM NHIỀU LỰA CHỌN (3,0 điểm)</h3>
-                <p>Gồm 10 câu hỏi. Mỗi câu trả lời đúng được 0,3 điểm.</p>
+        <div class="question-item" id="q2-box">
+            <div class="question-text">Câu 2[cite: 7]: Nghiệm của phương trình \(\cos x = \frac{1}{2}\) là:</div>
+            <div class="options">
+                <label><input type="radio" name="q2" value="A"> A. \(x = \pm \frac{\pi}{3} + k2\pi\)</label>
+                <label><input type="radio" name="q2" value="B"> B. \(x = \pm \frac{\pi}{6} + k2\pi\)</label>
+                <label><input type="radio" name="q2" value="C"> C. \(x = \frac{\pi}{3} + k2\pi\)</label>
+                <label><input type="radio" name="q2" value="D"> D. \(x = \pm \frac{\pi}{3} + k\pi\)</label>
             </div>
-
-            <div class="question-card" id="q1">
-                <span class="q-title">Câu 1: Công thức biến đổi tích thành tổng nào sau đây là đúng?</span>
-                <div class="options-grid">
-                    <label class="option-label"><input type="radio" name="p1q1" value="A"> A. cos a cos b = 1/2 [cos(a - b) + cos(a + b)]</label>
-                    <label class="option-label"><input type="radio" name="p1q1" value="B"> B. sin a sin b = 1/2 [cos(a - b) + cos(a + b)]</label>
-                    <label class="option-label"><input type="radio" name="p1q1" value="C"> C. sin a cos b = 1/2 [sin(a - b) - sin(a + b)]</label>
-                    <label class="option-label"><input type="radio" name="p1q1" value="D"> D. cos a sin b = 1/2 [sin(a - b) + sin(a + b)]</label>
-                </div>
-                <div class="explanation"><strong>Đáp án A.</strong> Công thức chuẩn: cos cos = 1/2 (cos hiệu + cos tổng). (Đáp án B sai dấu, phải là cos hiệu TRỪ cos tổng).</div>
+            <div class="explanation-box" id="exp-q2">
+                <b>Đáp án A.</b><br>
+                Ta có \(\cos \frac{\pi}{3} = \frac{1}{2}\), nên nghiệm là \(x = \pm \frac{\pi}{3} + k2\pi\).
             </div>
-
-            <div class="question-card" id="q2">
-                <span class="q-title">Câu 2: Tìm tất cả các nghiệm của phương trình tan x = tan(π/5).</span>
-                <div class="options-grid">
-                    <label class="option-label"><input type="radio" name="p1q2" value="A"> A. x = π/5 + k2π (k ∈ Z)</label>
-                    <label class="option-label"><input type="radio" name="p1q2" value="B"> B. x = -π/5 + kπ (k ∈ Z)</label>
-                    <label class="option-label"><input type="radio" name="p1q2" value="C"> C. x = π/5 + kπ (k ∈ Z)</label>
-                    <label class="option-label"><input type="radio" name="p1q2" value="D"> D. x = ±π/5 + kπ (k ∈ Z)</label>
-                </div>
-                <div class="explanation"><strong>Đáp án C.</strong> Phương trình tan u = tan v ⇔ u = v + kπ.</div>
-            </div>
-
-            <div class="question-card" id="q3">
-                <span class="q-title">Câu 3: Cho dãy số (uₙ) biết uₙ = (2n + 1)/(n + 2). Số hạng thứ 3 của dãy số là:</span>
-                <div class="options-grid">
-                    <label class="option-label"><input type="radio" name="p1q3" value="A"> A. 7/5</label>
-                    <label class="option-label"><input type="radio" name="p1q3" value="B"> B. 5/3</label>
-                    <label class="option-label"><input type="radio" name="p1q3" value="C"> C. 1</label>
-                    <label class="option-label"><input type="radio" name="p1q3" value="D"> D. 7/4</label>
-                </div>
-                <div class="explanation"><strong>Đáp án A.</strong> Thay n = 3 vào công thức: u₃ = (2.3 + 1) / (3 + 2) = 7/5.</div>
-            </div>
-
-            <div class="question-card" id="q4">
-                <span class="q-title">Câu 4: Cho cấp số nhân (uₙ) có u₁ = -3 và công bội q = 2. Tổng 5 số hạng đầu tiên (S₅) là:</span>
-                <div class="options-grid">
-                    <label class="option-label"><input type="radio" name="p1q4" value="A"> A. S₅ = -93</label>
-                    <label class="option-label"><input type="radio" name="p1q4" value="B"> B. S₅ = 93</label>
-                    <label class="option-label"><input type="radio" name="p1q4" value="C"> C. S₅ = -48</label>
-                    <label class="option-label"><input type="radio" name="p1q4" value="D"> D. S₅ = -33</label>
-                </div>
-                <div class="explanation"><strong>Đáp án A.</strong> S₅ = u₁ * (1 - q⁵) / (1 - q) = -3 * (1 - 32) / (1 - 2) = -3 * (-31) / (-1) = -93.</div>
-            </div>
-
-            <div class="question-card" id="q5">
-                <span class="q-title">Câu 5: Tính giới hạn L = lim (3n³ - 2n + 1) / (4 - n³).</span>
-                <div class="options-grid">
-                    <label class="option-label"><input type="radio" name="p1q5" value="A"> A. L = 3</label>
-                    <label class="option-label"><input type="radio" name="p1q5" value="B"> B. L = -3</label>
-                    <label class="option-label"><input type="radio" name="p1q5" value="C"> C. L = 3/4</label>
-                    <label class="option-label"><input type="radio" name="p1q5" value="D"> D. L = 0</label>
-                </div>
-                <div class="explanation"><strong>Đáp án B.</strong> Chia cả tử và mẫu cho n³. Hệ số tử là 3, mẫu là -1. L = 3/(-1) = -3.</div>
-            </div>
-
-            <div class="question-card" id="q6">
-                <span class="q-title">Câu 6: Giới hạn lim(x→2) của (x² - 5x + 6) / (x - 2) bằng bao nhiêu?</span>
-                <div class="options-grid">
-                    <label class="option-label"><input type="radio" name="p1q6" value="A"> A. 1</label>
-                    <label class="option-label"><input type="radio" name="p1q6" value="B"> B. -1</label>
-                    <label class="option-label"><input type="radio" name="p1q6" value="C"> C. 0</label>
-                    <label class="option-label"><input type="radio" name="p1q6" value="D"> D. 5</label>
-                </div>
-                <div class="explanation"><strong>Đáp án B.</strong> Dạng 0/0. Phân tích tử: (x-2)(x-3). Rút gọn x-2 còn x-3. Thay x=2 vào được 2-3 = -1.</div>
-            </div>
-
-            <div class="question-card" id="q7">
-                <span class="q-title">Câu 7: Trong không gian, cho đường thẳng d và mặt phẳng (P) song song với nhau. Khẳng định nào sau đây là SAI?</span>
-                <div class="options-grid">
-                    <label class="option-label"><input type="radio" name="p1q7" value="A"> A. d không có điểm chung với (P).</label>
-                    <label class="option-label"><input type="radio" name="p1q7" value="B"> B. Tồn tại đường thẳng a nằm trong (P) sao cho a // d.</label>
-                    <label class="option-label"><input type="radio" name="p1q7" value="C"> C. Mọi mặt phẳng chứa d và cắt (P) thì cắt theo giao tuyến song song với d.</label>
-                    <label class="option-label"><input type="radio" name="p1q7" value="D"> D. Mọi đường thẳng nằm trong (P) đều song song với d.</label>
-                </div>
-                <div class="explanation"><strong>Đáp án D.</strong> Sai vì các đường thẳng trong (P) có thể chéo nhau với d (không nhất thiết phải song song).</div>
-            </div>
-
-            <div class="question-card" id="q8">
-                <span class="q-title">Câu 8: Cho hình hộp ABCD.A'B'C'D'. Mặt phẳng (AB'D') song song với mặt phẳng nào sau đây?</span>
-                <div class="options-grid">
-                    <label class="option-label"><input type="radio" name="p1q8" value="A"> A. (BDA')</label>
-                    <label class="option-label"><input type="radio" name="p1q8" value="B"> B. (BC'D)</label>
-                    <label class="option-label"><input type="radio" name="p1q8" value="C"> C. (A'C'C)</label>
-                    <label class="option-label"><input type="radio" name="p1q8" value="D"> D. (CDA')</label>
-                </div>
-                <div class="explanation"><strong>Đáp án B.</strong> Ta có AD' // BC' và AB' // DC'. Hai đường cắt nhau của (AB'D') song song với 2 đường cắt nhau của (BC'D).</div>
-            </div>
-
-            <div class="question-card" id="q9">
-                <span class="q-title">Câu 9: Cho mẫu số liệu ghép nhóm về điểm kiểm tra của 40 học sinh:</span>
-                <table>
-                    <tr><th>Điểm</th><th>[4; 5)</th><th>[5; 6)</th><th>[6; 7)</th><th>[7; 8)</th><th>[8; 9)</th><th>[9; 10]</th></tr>
-                    <tr><th>Số HS</th><td>2</td><td>8</td><td>7</td><td>12</td><td>8</td><td>3</td></tr>
-                </table>
-                <span class="q-title">Nhóm chứa trung vị (Me) của mẫu số liệu là:</span>
-                <div class="options-grid">
-                    <label class="option-label"><input type="radio" name="p1q9" value="A"> A. [6; 7)</label>
-                    <label class="option-label"><input type="radio" name="p1q9" value="B"> B. [7; 8)</label>
-                    <label class="option-label"><input type="radio" name="p1q9" value="C"> C. [5; 6)</label>
-                    <label class="option-label"><input type="radio" name="p1q9" value="D"> D. [8; 9)</label>
-                </div>
-                <div class="explanation"><strong>Đáp án B.</strong> Tổng n = 40. Trung vị nằm ở vị trí 20 và 21. Tần số tích lũy: 2, 10, 17, 29. Vị trí 20, 21 nằm trong nhóm tích lũy 29 tương ứng nhóm [7; 8).</div>
-            </div>
-
-            <div class="question-card" id="q10">
-                <span class="q-title">Câu 10: Hàm số f(x) = (x - 1) / (x - 2) gián đoạn tại điểm nào?</span>
-                <div class="options-grid">
-                    <label class="option-label"><input type="radio" name="p1q10" value="A"> A. x = 1</label>
-                    <label class="option-label"><input type="radio" name="p1q10" value="B"> B. x = 0</label>
-                    <label class="option-label"><input type="radio" name="p1q10" value="C"> C. x = 2</label>
-                    <label class="option-label"><input type="radio" name="p1q10" value="D"> D. x = 3</label>
-                </div>
-                <div class="explanation"><strong>Đáp án C.</strong> Hàm phân thức hữu tỉ gián đoạn tại nghiệm của mẫu số: x - 2 = 0 ⇒ x = 2.</div>
-            </div>
-
-            <div class="part-header">
-                <h3>PHẦN II. TRẮC NGHIỆM ĐÚNG SAI (4,0 điểm)</h3>
-                <p>Mỗi câu có 4 ý. Chọn Đúng/Sai. Điểm tối đa mỗi câu: 1.0 điểm.</p>
-                <p style="font-size:0.85rem; font-style:italic;">(1 ý đúng: 0.1đ; 2 ý đúng: 0.25đ; 3 ý đúng: 0.5đ; 4 ý đúng: 1.0đ)</p>
-            </div>
-
-            <div class="question-card" id="q11">
-                <span class="q-title">Câu 11: Cho phương trình: cos 2x - 5sin x - 3 = 0.</span>
-                <table class="tf-table">
-                    <tr class="tf-header-row">
-                        <th>Mệnh đề</th><th>Đúng</th><th>Sai</th>
-                    </tr>
-                    <tr>
-                        <td>a) Phương trình tương đương với: 2sin²x + 5sin x + 2 = 0.</td>
-                        <td><input type="radio" name="p2q11a" value="T"></td>
-                        <td><input type="radio" name="p2q11a" value="F"></td>
-                    </tr>
-                    <tr>
-                        <td>b) Phương trình có nghiệm sin x = -1/2 hoặc sin x = -2.</td>
-                        <td><input type="radio" name="p2q11b" value="T"></td>
-                        <td><input type="radio" name="p2q11b" value="F"></td>
-                    </tr>
-                    <tr>
-                        <td>c) Nghiệm của phương trình là x = -π/6 + k2π và x = 7π/6 + k2π.</td>
-                        <td><input type="radio" name="p2q11c" value="T"></td>
-                        <td><input type="radio" name="p2q11c" value="F"></td>
-                    </tr>
-                    <tr>
-                        <td>d) Trên khoảng (0; 2π), phương trình có 3 nghiệm phân biệt.</td>
-                        <td><input type="radio" name="p2q11d" value="T"></td>
-                        <td><input type="radio" name="p2q11d" value="F"></td>
-                    </tr>
-                </table>
-                <div class="explanation">
-                    <strong>Giải thích:</strong><br>
-                    a) <strong>Đúng.</strong> cos2x = 1 - 2sin²x. PT: 1 - 2sin²x - 5sinx - 3 = 0 ⇔ -2sin²x - 5sinx - 2 = 0 ⇔ 2sin²x + 5sinx + 2 = 0.<br>
-                    b) <strong>Đúng.</strong> Giải pt bậc 2 được nghiệm -1/2 và -2.<br>
-                    c) <strong>Đúng.</strong> sin x = -1/2 ⇒ x = -π/6 + k2π và x = π - (-π/6) = 7π/6 + k2π.<br>
-                    d) <strong>Sai.</strong> Trên (0; 2π), nghiệm 7π/6 thuộc khoảng. Nghiệm -π/6 + 2π = 11π/6 thuộc khoảng. Tổng cộng có 2 nghiệm.
-                </div>
-            </div>
-
-            <div class="question-card" id="q12">
-                <span class="q-title">Câu 12: Cho hình chóp S.ABCD có đáy ABCD là hình thang với đáy lớn AB = 2CD. Gọi M là trung điểm của SA, N là điểm trên cạnh SB sao cho SN = 2NB.</span>
-                <p style="font-style:italic; font-size:0.9rem;">(Học sinh vẽ hình để suy luận)</p>
-                <table class="tf-table">
-                    <tr class="tf-header-row">
-                        <th>Mệnh đề</th><th>Đúng</th><th>Sai</th>
-                    </tr>
-                    <tr>
-                        <td>a) Đường thẳng MN song song với mặt phẳng (ABCD).</td>
-                        <td><input type="radio" name="p2q12a" value="T"></td>
-                        <td><input type="radio" name="p2q12a" value="F"></td>
-                    </tr>
-                    <tr>
-                        <td>b) Giao tuyến của hai mặt phẳng (SAD) và (SBC) là đường thẳng đi qua S và song song với AD.</td>
-                        <td><input type="radio" name="p2q12b" value="T"></td>
-                        <td><input type="radio" name="p2q12b" value="F"></td>
-                    </tr>
-                    <tr>
-                        <td>c) Đường thẳng NC cắt mặt phẳng (SAD) tại một điểm P. Khi đó P là trung điểm SD.</td>
-                        <td><input type="radio" name="p2q12c" value="T"></td>
-                        <td><input type="radio" name="p2q12c" value="F"></td>
-                    </tr>
-                    <tr>
-                        <td>d) Gọi G là trọng tâm tam giác SCD. Đường thẳng MG song song với mặt phẳng (SBC).</td>
-                        <td><input type="radio" name="p2q12d" value="T"></td>
-                        <td><input type="radio" name="p2q12d" value="F"></td>
-                    </tr>
-                </table>
-                <div class="explanation">
-                    <strong>Giải thích:</strong><br>
-                    a) <strong>Sai.</strong> M trung điểm SA (SM/SA=1/2), N chia SB tỉ lệ 2:1 (SN/SB=2/3). Tỉ số khác nhau nên MN không song song AB => Không song song (ABCD).<br>
-                    b) <strong>Đúng.</strong> Hai mp chứa AD // BC. Giao tuyến qua S song song AD, BC.<br>
-                    c) <strong>Sai.</strong> P thuộc giao tuyến (qua S // AD // BC). Trong mp(SBC), N chia SN=2NB. Chiếu song song không bảo toàn trung điểm nếu tỉ số khác. Cụ thể: P là giao của NC và đường thẳng qua S song song BC. (Cần tính toán Talet cụ thể, nhưng thường P không là trung điểm nếu SN/SB=2/3).<br>
-                    d) <strong>Đúng.</strong> Lấy K trung điểm SD, G thuộc CK. MK // AD // BC. Tỉ số trọng tâm kết hợp M trung điểm sẽ tạo ra đường song song với mp đáy hoặc mặt bên tương ứng. (Chi tiết: Lấy I trung điểm CD. G thuộc SI với SG/SI = 2/3. M là trung điểm SA. Xét mp(SAI). MG cắt AI... Cần xét kỹ hơn. M trung điểm SA. G trọng tâm SCD. Gọi H trung điểm SC. G thuộc DH. MG không song song SBC một cách hiển nhiên). Đáp án là SAI (dựa trên trực quan mức độ 11).
-                </div>
-            </div>
-
-            <div class="question-card" id="q13">
-                <span class="q-title">Câu 13: Thống kê thời gian sử dụng điện thoại (phút) trong ngày của 100 học sinh:</span>
-                <table>
-                    <tr><th>Thời gian</th><th>[0; 30)</th><th>[30; 60)</th><th>[60; 90)</th><th>[90; 120)</th><th>[120; 150)</th></tr>
-                    <tr><th>Số HS</th><td>10</td><td>20</td><td>40</td><td>20</td><td>10</td></tr>
-                </table>
-                <table class="tf-table">
-                    <tr class="tf-header-row">
-                        <th>Mệnh đề</th><th>Đúng</th><th>Sai</th>
-                    </tr>
-                    <tr>
-                        <td>a) Cỡ mẫu của số liệu là 100.</td>
-                        <td><input type="radio" name="p2q13a" value="T"></td>
-                        <td><input type="radio" name="p2q13a" value="F"></td>
-                    </tr>
-                    <tr>
-                        <td>b) Nhóm chứa Mốt của mẫu số liệu là [60; 90).</td>
-                        <td><input type="radio" name="p2q13b" value="T"></td>
-                        <td><input type="radio" name="p2q13b" value="F"></td>
-                    </tr>
-                    <tr>
-                        <td>c) Trung bình thời gian sử dụng điện thoại là 75 phút.</td>
-                        <td><input type="radio" name="p2q13c" value="T"></td>
-                        <td><input type="radio" name="p2q13c" value="F"></td>
-                    </tr>
-                    <tr>
-                        <td>d) Số học sinh sử dụng điện thoại dưới 90 phút chiếm 80%.</td>
-                        <td><input type="radio" name="p2q13d" value="T"></td>
-                        <td><input type="radio" name="p2q13d" value="F"></td>
-                    </tr>
-                </table>
-                <div class="explanation">
-                    <strong>Giải thích:</strong><br>
-                    a) <strong>Đúng.</strong> Tổng tần số = 100.<br>
-                    b) <strong>Đúng.</strong> Tần số lớn nhất là 40 tương ứng nhóm [60; 90).<br>
-                    c) <strong>Đúng.</strong> Do phân phối đối xứng hoàn hảo (10-20-40-20-10) quanh nhóm giữa, trung bình = tâm nhóm giữa = (60+90)/2 = 75.<br>
-                    d) <strong>Sai.</strong> Dưới 90 phút gồm 3 nhóm đầu: 10 + 20 + 40 = 70 hs. Tỉ lệ 70/100 = 70%.
-                </div>
-            </div>
-
-            <div class="part-header">
-                <h3>PHẦN III. TRẢ LỜI NGẮN (3,0 điểm)</h3>
-                <p>Gồm 3 câu hỏi. Điền đáp số (số hoặc phân số tối giản).</p>
-            </div>
-
-            <div class="question-card" id="q14">
-                <span class="q-title">Câu 14 (Toán thực tế):</span>
-                <p>Ông A gửi tiết kiệm 100 triệu đồng vào ngân hàng với lãi suất 6%/năm theo hình thức lãi kép (tiền lãi được nhập vào vốn gốc sau mỗi năm). Hỏi sau ít nhất bao nhiêu năm thì tổng số tiền (cả vốn lẫn lãi) của ông A vượt quá 150 triệu đồng? (Biết lãi suất không đổi).</p>
-                <input type="number" class="short-input" id="p3q14" placeholder="Nhập số năm...">
-                <div class="explanation">
-                    <strong>Đáp án: 7</strong><br>
-                    Công thức: A = P(1+r)ⁿ. 150 < 100(1.06)ⁿ ⇒ 1.5 < (1.06)ⁿ. <br>
-                    n > log1.06(1.5) ≈ 6.96. Vậy cần ít nhất 7 năm.
-                </div>
-            </div>
-
-            <div class="question-card" id="q15">
-                <span class="q-title">Câu 15 (Thống kê):</span>
-                <p>Dựa vào bảng số liệu ở Câu 13 (Phần 2), hãy tính giá trị của Mốt (M₀). (Làm tròn đến 1 chữ số thập phân).</p>
-                <input type="text" class="short-input" id="p3q15" placeholder="Ví dụ: 72.5">
-                <div class="explanation">
-                    <strong>Đáp án: 75</strong><br>
-                    Nhóm mốt [60; 90). a = 60, h = 30. n = 40, n1 = 20, n2 = 20.<br>
-                    Mo = 60 + ((40-20)/((40-20)+(40-20))) * 30 = 60 + (20/40)*30 = 60 + 15 = 75.
-                </div>
-            </div>
-
-            <div class="question-card" id="q16">
-                <span class="q-title">Câu 16 (Hình học):</span>
-                <p>Cho hình chóp S.ABC. Gọi M, N lần lượt là trung điểm của SA và SB. Mặt phẳng (P) đi qua MN và song song với SC, cắt AC tại K. Tính tỉ số KC/AC?</p>
-                <input type="text" class="short-input" id="p3q16" placeholder="Nhập phân số dạng a/b...">
-                <div class="explanation">
-                    <strong>Đáp án: 1/2</strong><br>
-                    MN là đường trung bình tam giác SAB => MN // AB.<br>
-                    Mặt phẳng (P) chứa MN và // SC. Qua M kẻ đường thẳng // SC cắt AC tại K.<br>
-                    Trong tam giác SAC, M là trung điểm SA, MK // SC => K là trung điểm AC.<br>
-                    Vậy KC/AC = 1/2.
-                </div>
-            </div>
-
-        </form>
-
-        <div class="footer-bar">
-            <button class="btn-submit" onclick="submitExam()">NỘP BÀI & XEM KẾT QUẢ</button>
         </div>
-    </div>
 
-    <script>
-        // CẤU HÌNH ĐÁP ÁN
-        const answers = {
-            // Phần 1
-            p1q1: "A", p1q2: "C", p1q3: "A", p1q4: "A", p1q5: "B",
-            p1q6: "B", p1q7: "D", p1q8: "B", p1q9: "B", p1q10: "C",
-            // Phần 2 (T=True, F=False)
-            p2q11a: "T", p2q11b: "T", p2q11c: "T", p2q11d: "F",
-            p2q12a: "F", p2q12b: "T", p2q12c: "F", p2q12d: "F", // Q12d: MG ko song song SBC (chỉnh lại đáp án logic)
-            p2q13a: "T", p2q13b: "T", p2q13c: "T", p2q13d: "F",
-            // Phần 3
-            p3q14: ["7"],
-            p3q15: ["75", "75.0"],
-            p3q16: ["1/2", "0.5", "0,5"]
-        };
+        <div class="question-item" id="q3-box">
+            <div class="question-text">Câu 3[cite: 7]: Cho cấp số cộng \((u_n)\) biết \(u_1 = 2\) và công sai \(d = 3\). Số hạng thứ 5 (\(u_5\)) là:</div>
+            <div class="options">
+                <label><input type="radio" name="q3" value="A"> A. 14</label>
+                <label><input type="radio" name="q3" value="B"> B. 17</label>
+                <label><input type="radio" name="q3" value="C"> C. 11</label>
+                <label><input type="radio" name="q3" value="D"> D. 8</label>
+            </div>
+            <div class="explanation-box" id="exp-q3">
+                <b>Đáp án A.</b><br>
+                Công thức: \(u_n = u_1 + (n-1)d\).<br>
+                \(u_5 = 2 + (5-1).3 = 2 + 12 = 14\).
+            </div>
+        </div>
 
-        // ĐỒNG HỒ ĐẾM NGƯỢC
-        let timeLeft = 3600; // 60 phút
-        const timerEl = document.getElementById('timer');
-        const countdown = setInterval(() => {
-            let m = Math.floor(timeLeft / 60);
-            let s = timeLeft % 60;
-            timerEl.textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
-            timeLeft--;
-            if (timeLeft < 0) {
-                clearInterval(countdown);
-                submitExam();
-                alert("Đã hết thời gian làm bài!");
-            }
-        }, 1000);
+        <div class="question-item" id="q4-box">
+            <div class="question-text">Câu 4[cite: 7]: Cho cấp số nhân \((u_n)\) có \(u_1 = -3\) và công bội \(q = 2\). Số hạng tổng quát \(u_n\) là:</div>
+            <div class="options">
+                <label><input type="radio" name="q4" value="A"> A. \(u_n = -3 \cdot 2^{n-1}\)</label>
+                <label><input type="radio" name="q4" value="B"> B. \(u_n = -3 \cdot 2^n\)</label>
+                <label><input type="radio" name="q4" value="C"> C. \(u_n = -3 + 2(n-1)\)</label>
+                <label><input type="radio" name="q4" value="D"> D. \(u_n = 2 \cdot (-3)^{n-1}\)</label>
+            </div>
+            <div class="explanation-box" id="exp-q4">
+                <b>Đáp án A.</b><br>
+                Công thức SHTQ của CSN là \(u_n = u_1 \cdot q^{n-1}\).
+            </div>
+        </div>
 
-        // HÀM CHẤM ĐIỂM
-        function submitExam() {
+        <div class="question-item" id="q5-box">
+            <div class="question-text">Câu 5[cite: 7]: Dãy số nào sau đây có giới hạn bằng 0?</div>
+            <div class="options">
+                <label><input type="radio" name="q5" value="A"> A. \(u_n = n^3\)</label>
+                <label><input type="radio" name="q5" value="B"> B. \(u_n = \left(\frac{1}{3}\right)^n\)</label>
+                <label><input type="radio" name="q5" value="C"> C. \(u_n = \left(\frac{4}{3}\right)^n\)</label>
+                <label><input type="radio" name="q5" value="D"> D. \(u_n = 2n + 1\)</label>
+            </div>
+            <div class="explanation-box" id="exp-q5">
+                <b>Đáp án B.</b><br>
+                Giới hạn \(q^n = 0\) khi \(|q| < 1\). Ở đây \(|\frac{1}{3}| < 1\).
+            </div>
+        </div>
+
+        <div class="question-item" id="q6-box">
+            <div class="question-text">Câu 6[cite: 7]: Tính giới hạn \(\lim_{x \to 2} (x^2 - 3x + 5)\).</div>
+            <div class="options">
+                <label><input type="radio" name="q6" value="A"> A. 15</label>
+                <label><input type="radio" name="q6" value="B"> B. 3</label>
+                <label><input type="radio" name="q6" value="C"> C. 5</label>
+                <label><input type="radio" name="q6" value="D"> D. 7</label>
+            </div>
+            <div class="explanation-box" id="exp-q6">
+                <b>Đáp án B.</b><br>
+                Hàm đa thức liên tục trên R, thay trực tiếp \(x=2\) vào: \(2^2 - 3(2) + 5 = 4 - 6 + 5 = 3\).
+            </div>
+        </div>
+
+        <div class="question-item" id="q7-box">
+            <div class="question-text">Câu 7[cite: 7]: Cho hàm số \(f(x) = \frac{x+1}{x-2}\). Hàm số gián đoạn tại điểm nào?</div>
+            <div class="options">
+                <label><input type="radio" name="q7" value="A"> A. \(x = -1\)</label>
+                <label><input type="radio" name="q7" value="B"> B. \(x = 0\)</label>
+                <label><input type="radio" name="q7" value="C"> C. \(x = 2\)</label>
+                <label><input type="radio" name="q7" value="D"> D. \(x = 1\)</label>
+            </div>
+            <div class="explanation-box" id="exp-q7">
+                <b>Đáp án C.</b><br>
+                Hàm số phân thức hữu tỉ xác định và liên tục trên tập xác định. Tại \(x=2\) mẫu số bằng 0, hàm không xác định nên gián đoạn.
+            </div>
+        </div>
+
+        <div class="question-item" id="q8-box">
+            <div class="question-text">Câu 8[cite: 7]: Cho đường thẳng \(d\) không nằm trong mặt phẳng \((\alpha)\). Điều kiện để \(d \parallel (\alpha)\) là:</div>
+            <div class="options">
+                <label><input type="radio" name="q8" value="A"> A. \(d\) vuông góc với \((\alpha)\).</label>
+                <label><input type="radio" name="q8" value="B"> B. \(d\) song song với một đường thẳng \(a\) nằm trong \((\alpha)\).</label>
+                <label><input type="radio" name="q8" value="C"> C. \(d\) cắt \((\alpha)\).</label>
+                <label><input type="radio" name="q8" value="D"> D. \(d\) chéo với mọi đường thẳng trong \((\alpha)\).</label>
+            </div>
+            <div class="explanation-box" id="exp-q8">
+                <b>Đáp án B.</b><br>
+                Định lý: Nếu đường thẳng \(d \not\subset (\alpha)\) và \(d\) song song với đường thẳng \(a \subset (\alpha)\) thì \(d \parallel (\alpha)\).
+            </div>
+        </div>
+
+        <div class="question-item" id="q9-box">
+            <div class="question-text">Câu 9[cite: 7]: Cho hình lăng trụ \(ABC.A'B'C'\). Mặt phẳng \((ABC)\) song song với mặt phẳng nào?</div>
+            <div class="options">
+                <label><input type="radio" name="q9" value="A"> A. \((ABB'A')\)</label>
+                <label><input type="radio" name="q9" value="B"> B. \((BCC'B')\)</label>
+                <label><input type="radio" name="q9" value="C"> C. \((A'B'C')\)</label>
+                <label><input type="radio" name="q9" value="D"> D. \((ACC'A')\)</label>
+            </div>
+            <div class="explanation-box" id="exp-q9">
+                <b>Đáp án C.</b><br>
+                Trong hình lăng trụ, hai mặt đáy song song với nhau.
+            </div>
+        </div>
+
+        <div class="question-item" id="q10-box">
+            <div class="question-text">Câu 10[cite: 7]: Cho mẫu số liệu ghép nhóm thời gian làm bài (phút): [10; 20): 5 HS, [20; 30): 15 HS, [30; 40): 10 HS. Nhóm chứa mốt là:</div>
+            <div class="options">
+                <label><input type="radio" name="q10" value="A"> A. [10; 20)</label>
+                <label><input type="radio" name="q10" value="B"> B. [20; 30)</label>
+                <label><input type="radio" name="q10" value="C"> C. [30; 40)</label>
+                <label><input type="radio" name="q10" value="D"> D. Cả 3 nhóm</label>
+            </div>
+            <div class="explanation-box" id="exp-q10">
+                <b>Đáp án B.</b><br>
+                Nhóm chứa mốt là nhóm có tần số lớn nhất (15). Vậy là nhóm [20; 30).
+            </div>
+        </div>
+
+        <h2>PHẦN II. TRẮC NGHIỆM ĐÚNG SAI (4,0 điểm)</h2>
+        <p><i>Thí sinh trả lời từng ý a, b, c, d. (Đúng 1 ý: 0.1đ; 2 ý: 0.25đ; 3 ý: 0.5đ; 4 ý: 1.0đ)</i></p>
+
+        <div class="question-item" id="tf1-box">
+            <div class="question-text">Câu 1: Cho phương trình lượng giác \(\sin 2x = -\frac{\sqrt{3}}{2}\).</div>
+            <table class="tf-table">
+                <tr><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
+                <tr>
+                    <td>a) Phương trình có nghiệm \(x = -\frac{\pi}{6} + k\pi\).</td>
+                    <td><input type="radio" name="tf1a" value="true"></td>
+                    <td><input type="radio" name="tf1a" value="false"></td>
+                </tr>
+                <tr>
+                    <td>b) Phương trình tương đương với \(\sin 2x = \sin\left(-\frac{\pi}{3}\right)\).</td>
+                    <td><input type="radio" name="tf1b" value="true"></td>
+                    <td><input type="radio" name="tf1b" value="false"></td>
+                </tr>
+                <tr>
+                    <td>c) Nghiệm dương nhỏ nhất của phương trình là \(x = \frac{\pi}{3}\).</td>
+                    <td><input type="radio" name="tf1c" value="true"></td>
+                    <td><input type="radio" name="tf1c" value="false"></td>
+                </tr>
+                <tr>
+                    <td>d) Có 2 điểm biểu diễn nghiệm của phương trình trên đường tròn lượng giác.</td>
+                    <td><input type="radio" name="tf1d" value="true"></td>
+                    <td><input type="radio" name="tf1d" value="false"></td>
+                </tr>
+            </table>
+            <div class="explanation-box" id="exp-tf1">
+                <b>Giải thích:</b><br>
+                a) <b>Đúng.</b> Họ nghiệm thứ nhất: \(2x = -\frac{\pi}{3} + k2\pi \Rightarrow x = -\frac{\pi}{6} + k\pi\).<br>
+                b) <b>Đúng.</b> Vì \(\sin(-\pi/3) = -\sqrt{3}/2\).<br>
+                c) <b>Sai.</b> Nghiệm: \(-\frac{\pi}{6}+k\pi\) (với k=1 \(\to 5\pi/6\)) và \(2x = \pi - (-\frac{\pi}{3}) + k2\pi \Rightarrow x = \frac{2\pi}{3} + k\pi\). Nghiệm dương nhỏ nhất là \(2\pi/3\) (k=0 của họ 2) hoặc \(5\pi/6\). Chờ đã, \(k=1\) ở họ 1 ra \(5\pi/6\). Họ 2: \(x = 2\pi/3\). Vậy nhỏ nhất là \(2\pi/3\).<br>
+                d) <b>Sai.</b> Do \(2x\), chu kỳ là \(k\pi\). Mỗi họ nghiệm có 2 điểm biểu diễn. Tổng là 4 điểm.
+            </div>
+        </div>
+
+        <div class="question-item" id="tf2-box">
+            <div class="question-text">Câu 2: Cước phí gửi xe tại một bãi xe được tính như sau: 10.000đ cho giờ đầu tiên (hoặc ít hơn) và 5.000đ cho mỗi giờ tiếp theo (hoặc phần lẻ của giờ). Xét hàm số chi phí \(C(t)\) theo thời gian \(t\) (giờ).</div>
+            <table class="tf-table">
+                <tr><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
+                <tr>
+                    <td>a) Nếu gửi xe 30 phút (0.5 giờ), chi phí là 5.000đ.</td>
+                    <td><input type="radio" name="tf2a" value="true"></td>
+                    <td><input type="radio" name="tf2a" value="false"></td>
+                </tr>
+                <tr>
+                    <td>b) Nếu gửi xe 1.5 giờ, chi phí là 15.000đ.</td>
+                    <td><input type="radio" name="tf2b" value="true"></td>
+                    <td><input type="radio" name="tf2b" value="false"></td>
+                </tr>
+                <tr>
+                    <td>c) Hàm số \(C(t)\) liên tục tại \(t=1\).</td>
+                    <td><input type="radio" name="tf2c" value="true"></td>
+                    <td><input type="radio" name="tf2c" value="false"></td>
+                </tr>
+                <tr>
+                    <td>d) Giới hạn bên phải của hàm số tại \(t=1\) là 15.000đ (\(\lim_{t \to 1^+} C(t) = 15000\)).</td>
+                    <td><input type="radio" name="tf2d" value="true"></td>
+                    <td><input type="radio" name="tf2d" value="false"></td>
+                </tr>
+            </table>
+            <div class="explanation-box" id="exp-tf2">
+                <b>Giải thích:</b><br>
+                a) <b>Sai.</b> Dưới 1 giờ vẫn tính giá mở cửa là 10.000đ.<br>
+                b) <b>Đúng.</b> 10k (1h đầu) + 5k (0.5h tiếp theo) = 15.000đ.<br>
+                c) <b>Sai.</b> Tại t=1 giá 10k. Tại t > 1 giá nhảy lên 15k. Hàm gián đoạn.<br>
+                d) <b>Đúng.</b> Khi thời gian vừa vượt qua 1 giờ, giá cước chuyển sang mức tiếp theo.
+            </div>
+        </div>
+
+        <div class="question-item" id="tf3-box">
+            <div class="question-text">Câu 3: Cho hình chóp S.ABCD có đáy là hình bình hành tâm O. Gọi M, N lần lượt là trung điểm của SA và SC.</div>
+            <table class="tf-table">
+                <tr><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
+                <tr>
+                    <td>a) Đường thẳng MN song song với mặt phẳng (ABCD).</td>
+                    <td><input type="radio" name="tf3a" value="true"></td>
+                    <td><input type="radio" name="tf3a" value="false"></td>
+                </tr>
+                <tr>
+                    <td>b) Giao tuyến của (SAB) và (SCD) là đường thẳng đi qua S và song song với AB.</td>
+                    <td><input type="radio" name="tf3b" value="true"></td>
+                    <td><input type="radio" name="tf3b" value="false"></td>
+                </tr>
+                <tr>
+                    <td>c) MN vuông góc với BD.</td>
+                    <td><input type="radio" name="tf3c" value="true"></td>
+                    <td><input type="radio" name="tf3c" value="false"></td>
+                </tr>
+                <tr>
+                    <td>d) Mặt phẳng (BMN) cắt cạnh SD tại trung điểm P của SD.</td>
+                    <td><input type="radio" name="tf3d" value="true"></td>
+                    <td><input type="radio" name="tf3d" value="false"></td>
+                </tr>
+            </table>
+            <div class="explanation-box" id="exp-tf3">
+                <b>Giải thích:</b><br>
+                a) <b>Đúng.</b> MN là đường trung bình tam giác SAC \(\Rightarrow MN \parallel AC\). Mà \(AC \subset (ABCD) \Rightarrow MN \parallel (ABCD)\).<br>
+                b) <b>Đúng.</b> \(AB \parallel CD\), giao tuyến của 2 mp chứa 2 đường song song sẽ đi qua điểm chung S và song song với chúng.<br>
+                c) <b>Sai.</b> \(MN \parallel AC\). Trong hình bình hành, AC không nhất thiết vuông góc BD (chỉ đúng với hình thoi/vuông).<br>
+                d) <b>Sai.</b> Giao tuyến của (BMN) với (SBD) là BO (O thuộc MN). BO kéo dài cắt SD tại D. Vậy giao điểm là D, không phải trung điểm.
+            </div>
+        </div>
+
+        <h2>PHẦN III. TRẢ LỜI NGẮN (3,0 điểm)</h2>
+        <p><i>Mỗi câu trả lời đúng được 1,0 điểm.</i></p>
+
+        <div class="question-item" id="sa1-box">
+            <div class="question-text">Câu 1: Một quả bóng cao su được thả rơi từ độ cao 12m. Mỗi lần chạm đất, nó nảy lên được độ cao bằng \(\frac{2}{3}\) độ cao lần rơi trước đó. Tổng quãng đường quả bóng di chuyển (lên và xuống) cho đến khi dừng lại hẳn là bao nhiêu mét?</div>
+            <input type="text" class="short-ans-input" id="sa1" placeholder="Nhập số (VD: 50)">
+            <div class="explanation-box" id="exp-sa1">
+                <b>Đáp án: 60</b>.<br>
+                Quãng đường xuống: \(S_1 = 12 + 12(\frac{2}{3}) + ...\) (CSN lùi vô hạn \(u_1=12, q=2/3\)) \(\to S_1 = \frac{12}{1-2/3} = 36\).<br>
+                Quãng đường lên: \(S_2 = 12(\frac{2}{3}) + ...\) (CSN lùi vô hạn \(u_1=8, q=2/3\)) \(\to S_2 = \frac{8}{1-2/3} = 24\).<br>
+                Tổng = 36 + 24 = 60m.
+            </div>
+        </div>
+
+        <div class="question-item" id="sa2-box">
+            <div class="question-text">Câu 2: Tìm giá trị của tham số \(a\) để hàm số \(f(x) = \begin{cases} \frac{x^2-1}{x-1} & \text{khi } x \neq 1 \\ a+2 & \text{khi } x = 1 \end{cases}\) liên tục tại \(x = 1\).</div>
+            <input type="text" class="short-ans-input" id="sa2" placeholder="Nhập số...">
+            <div class="explanation-box" id="exp-sa2">
+                <b>Đáp án: 0</b>.<br>
+                \(\lim_{x \to 1} \frac{x^2-1}{x-1} = \lim_{x \to 1} (x+1) = 2\).<br>
+                Để hàm liên tục, \(f(1) = 2 \Rightarrow a + 2 = 2 \Rightarrow a = 0\).
+            </div>
+        </div>
+
+        <div class="question-item" id="sa3-box">
+            <div class="question-text">Câu 3: Cho hình chóp S.ABCD có đáy là hình bình hành. Một mặt phẳng (P) đi qua AB và cắt cạnh SC tại M sao cho \(\frac{SM}{SC} = \frac{2}{3}\). Mặt phẳng (P) cắt cạnh SD tại N. Tính tỉ số \(\frac{SN}{SD}\). (Nhập kết quả dưới dạng phân số tối giản a/b).</div>
+            <input type="text" class="short-ans-input" id="sa3" placeholder="VD: 1/2">
+            <div class="explanation-box" id="exp-sa3">
+                <b>Đáp án: 2/3</b>.<br>
+                Vì \(AB \parallel CD\), và (P) chứa AB, cắt (SCD) theo giao tuyến MN. Suy ra \(MN \parallel CD\).<br>
+                Trong tam giác SCD, \(MN \parallel CD\), theo định lý Thales: \(\frac{SN}{SD} = \frac{SM}{SC} = \frac{2}{3}\).
+            </div>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="submitQuiz()">NỘP BÀI</button>
+        
+        <div class="result-section" id="result-box">
+            <h2>KẾT QUẢ: <span id="score-display">0</span>/10</h2>
+            <p>Hãy xem lại hướng dẫn giải chi tiết ở phía trên (được tô màu vàng).</p>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    // Config đáp án
+    const answers = {
+        // Phần 1
+        q1: "D", q2: "A", q3: "A", q4: "A", q5: "B", 
+        q6: "B", q7: "C", q8: "B", q9: "C", q10: "B",
+        // Phần 2 (True/False)
+        tf1: { a: "true", b: "true", c: "false", d: "false" },
+        tf2: { a: "false", b: "true", c: "false", d: "true" },
+        tf3: { a: "true", b: "true", c: "false", d: "false" },
+        // Phần 3 (Short answer - mảng các đáp án chấp nhận được)
+        sa1: ["60"],
+        sa2: ["0"],
+        sa3: ["2/3"]
+    };
+
+    // Timer Logic
+    let timeInSeconds = 60 * 60; // 60 minutes
+    const timerElement = document.getElementById('timer');
+    
+    const countdown = setInterval(() => {
+        const minutes = Math.floor(timeInSeconds / 60);
+        let seconds = timeInSeconds % 60;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        timerElement.innerHTML = `Thời gian còn lại: ${minutes}:${seconds}`;
+        timeInSeconds--;
+        
+        if (timeInSeconds < 0) {
             clearInterval(countdown);
-            let score = 0;
-
-            // --- Chấm Phần 1 (10 câu, 0.3đ/câu) ---
-            for (let i = 1; i <= 10; i++) {
-                const key = `p1q${i}`;
-                const userAns = document.querySelector(`input[name="${key}"]:checked`)?.value;
-                const block = document.getElementById(`q${i}`);
-                
-                if (userAns === answers[key]) {
-                    score += 0.3;
-                    block.classList.add('correct-card');
-                } else {
-                    block.classList.add('wrong-card');
-                }
-            }
-
-            // --- Chấm Phần 2 (3 câu, max 1.0đ/câu theo thang bậc) ---
-            const p2Qs = ['q11', 'q12', 'q13'];
-            p2Qs.forEach(q => {
-                let correctCount = 0;
-                ['a', 'b', 'c', 'd'].forEach(sub => {
-                    const key = `p2${q}${sub}`;
-                    const val = document.querySelector(`input[name="${key}"]:checked`)?.value;
-                    if (val === answers[key]) correctCount++;
-                });
-
-                // Thang điểm mới
-                let points = 0;
-                if (correctCount === 1) points = 0.1;
-                else if (correctCount === 2) points = 0.25;
-                else if (correctCount === 3) points = 0.5;
-                else if (correctCount === 4) points = 1.0;
-                
-                score += points;
-
-                const block = document.getElementById(q);
-                if (correctCount === 4) block.classList.add('correct-card');
-                else block.classList.add('wrong-card');
-            });
-
-            // --- Chấm Phần 3 (3 câu, 1.0đ/câu) ---
-            const p3Qs = ['p3q14', 'p3q15', 'p3q16'];
-            p3Qs.forEach((key, idx) => {
-                const userVal = document.getElementById(key).value.trim();
-                const qNum = 14 + idx;
-                const block = document.getElementById(`q${qNum}`);
-                
-                if (answers[key].includes(userVal)) {
-                    score += 1.0;
-                    block.classList.add('correct-card');
-                } else {
-                    block.classList.add('wrong-card');
-                }
-            });
-
-            // --- Hiển thị kết quả ---
-            document.getElementById('score-display').textContent = score.toFixed(2);
-            document.getElementById('result-board').style.display = 'block';
-            
-            // Hiện lời giải
-            document.querySelectorAll('.explanation').forEach(el => el.style.display = 'block');
-            
-            // Khóa input và nút nộp
-            document.querySelectorAll('input').forEach(el => el.disabled = true);
-            document.querySelector('.btn-submit').disabled = true;
-            document.querySelector('.btn-submit').textContent = "ĐÃ NỘP BÀI";
-
-            // Cuộn lên đầu trang
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            alert("Đã hết thời gian làm bài!");
+            submitQuiz();
         }
-    </script>
+    }, 1000);
+
+    function submitQuiz() {
+        clearInterval(countdown);
+        let totalScore = 0;
+        const form = document.getElementById('quizForm');
+        
+        // --- CHẤM PHẦN 1 (0.3đ/câu) ---
+        for (let i = 1; i <= 10; i++) {
+            const qKey = 'q' + i;
+            const userAns = form.elements[qKey].value;
+            const box = document.getElementById(qKey + '-box');
+            
+            // Hiện đáp án
+            document.getElementById('exp-' + qKey).style.display = 'block';
+
+            if (userAns === answers[qKey]) {
+                totalScore += 0.3;
+                box.classList.add('correct-answer-bg');
+            } else {
+                if(userAns) box.classList.add('wrong-answer-bg');
+            }
+        }
+
+        // --- CHẤM PHẦN 2 (Item banking: 0.1 - 0.25 - 0.5 - 1.0) ---
+        for (let i = 1; i <= 3; i++) {
+            let correctCount = 0;
+            const parts = ['a', 'b', 'c', 'd'];
+            const box = document.getElementById('tf' + i + '-box');
+
+            // Hiện đáp án
+            document.getElementById('exp-tf' + i).style.display = 'block';
+            
+            parts.forEach(p => {
+                const key = 'tf' + i + p;
+                const userVal = form.elements[key].value;
+                if (userVal === answers['tf' + i][p]) {
+                    correctCount++;
+                }
+            });
+
+            // Cộng điểm theo thang
+            if (correctCount === 1) totalScore += 0.1;
+            else if (correctCount === 2) totalScore += 0.25;
+            else if (correctCount === 3) totalScore += 0.5;
+            else if (correctCount === 4) totalScore += 1.0;
+        }
+
+        // --- CHẤM PHẦN 3 (1.0đ/câu) ---
+        for (let i = 1; i <= 3; i++) {
+            const key = 'sa' + i;
+            const userAns = document.getElementById(key).value.trim();
+            const box = document.getElementById(key + '-box');
+
+            document.getElementById('exp-' + key).style.display = 'block';
+
+            if (answers[key].includes(userAns)) {
+                totalScore += 1.0;
+                box.classList.add('correct-answer-bg');
+            } else {
+                box.classList.add('wrong-answer-bg');
+            }
+        }
+
+        // Hiển thị điểm
+        totalScore = Math.round(totalScore * 100) / 100;
+        const scoreDisplay = document.getElementById('score-display');
+        scoreDisplay.innerText = totalScore;
+        document.getElementById('result-box').style.display = 'block';
+        
+        // Disable nút nộp
+        document.querySelector('.btn-submit').disabled = true;
+        document.querySelector('.btn-submit').innerText = "ĐÃ NỘP BÀI";
+        
+        // Scroll xuống kết quả
+        document.getElementById('result-box').scrollIntoView({behavior: 'smooth'});
+    }
+</script>
+
 </body>
 </html>
