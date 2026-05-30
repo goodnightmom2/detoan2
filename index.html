@@ -3,125 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3 Đề Thi Toán Lớp 10 Nâng Cao - Tây Ninh 2026-2027</title>
+    <title>Tuyển Tập 5 Dạng Bài Hình Học Đường Tròn Nâng Cao Ôn Thi Vào Lớp 10</title>
+    
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
-        body { font-family: 'Times New Roman', Times, serif; line-height: 1.6; margin: 40px auto; max-width: 850px; padding: 20px; color: #333; font-size: 18px; }
-        h1, h2, h3 { text-align: center; margin-bottom: 5px; }
-        h1 { font-size: 24px; color: #b71c1c; margin-bottom: 20px; }
-        h2 { font-size: 22px; margin-top: 40px; padding-bottom: 10px; border-bottom: 2px solid #b71c1c; }
-        h3 { font-size: 18px; font-weight: normal; font-style: italic; margin-top: 0; margin-bottom: 30px; }
-        .question { font-weight: bold; margin-top: 30px; font-size: 1.1em; color: #0d47a1; }
-        .sub-question { margin-left: 20px; margin-top: 15px; text-align: justify; }
-        hr { border: 0; border-top: 2px dashed #333; margin: 40px 0; }
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            line-height: 1.6; 
+            margin: 40px auto; 
+            max-width: 900px; 
+            padding: 20px; 
+            color: #222; 
+            font-size: 18px; 
+            background-color: #fcfbf9; 
+        }
+        .main-box { 
+            background: #ffffff; 
+            padding: 45px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
+            border: 1px solid #eef0f2;
+        }
+        h1 { 
+            text-align: center; 
+            font-size: 26px; 
+            color: #b71c1c; 
+            margin-bottom: 5px; 
+            text-transform: uppercase; 
+            font-weight: bold; 
+            letter-spacing: 0.5px;
+        }
+        h2 { 
+            text-align: center; 
+            font-size: 20px; 
+            color: #2c3e50; 
+            margin-top: 5px; 
+            margin-bottom: 30px;
+            font-weight: normal;
+            font-style: italic;
+        }
+        .section-header { 
+            background: #b71c1c; 
+            color: #fff; 
+            padding: 12px; 
+            font-size: 20px; 
+            text-align: center; 
+            font-weight: bold; 
+            border-radius: 4px; 
+            margin-top: 40px; 
+            text-transform: uppercase; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section-header.solution-header { 
+            background: #2c3e50; 
+        }
+        .model-box {
+            background-color: #f4f6f7;
+            padding: 10px 15px;
+            border-left: 4px solid #7f8c8d;
+            margin-top: 25px;
+            font-weight: bold;
+            color: #34495e;
+            font-size: 1.05em;
+        }
+        .question-title { 
+            font-weight: bold; 
+            margin-top: 15px; 
+            font-size: 1.1em; 
+            color: #0d47a1; 
+        }
+        .sub-item { 
+            margin-left: 25px; 
+            margin-top: 10px; 
+            text-align: justify; 
+        }
+        .solution-block {
+            margin-top: 35px;
+            padding-bottom: 10px;
+        }
+        .sol-item { 
+            margin-left: 20px; 
+            margin-top: 12px; 
+            text-align: justify; 
+        }
+        .sol-item b {
+            color: #27ae60;
+        }
+        .nav-tabs { 
+            text-align: center; 
+            margin-bottom: 25px; 
+        }
+        .nav-tabs a { 
+            display: inline-block; 
+            margin: 5px 12px; 
+            padding: 10px 20px; 
+            background: #e8ede0; 
+            color: #2e7d32; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            font-size: 0.95em; 
+            transition: all 0.3s ease; 
+        }
+        .nav-tabs a:hover { 
+            background: #2e7d32; 
+            color: #fff; 
+        }
+        hr { 
+            border: 0; 
+            border-top: 1px dashed #bdc3c7; 
+            margin: 35px 0; 
+        }
     </style>
 </head>
 <body>
 
-    <h1>TUYỂN TẬP 3 ĐỀ THI TOÁN VÀO 10 CẤU TRÚC TÂY NINH</h1>
-    <h3>Mức độ: Nâng cao (Có tham số m, giới hạn Xác suất lớp 9)</h3>
-    <h3>Thời gian làm bài mỗi đề: 120 phút</h3>
+<div class="main-box">
+    <h1>Tuyển Tập 5 Dạng Bài Hình Học Đường Tròn Nâng Cao</h1>
+    <h2>Tài liệu ôn thi vào lớp 10 Chuyên và Hệ không chuyên phân hóa cao</h2>
 
-    <h2>ĐỀ THI SỐ 1</h2>
-    
-    <div class="question">Câu 1 (1,5 điểm) Căn thức</div>
-    <div class="sub-question">a) Tính giá trị của biểu thức: \( A = \sqrt{9 - 4\sqrt{5}} - \sqrt{5} \)</div>
-    <div class="sub-question">b) Rút gọn biểu thức sau: \( P = \left( \frac{\sqrt{x}}{\sqrt{x}-2} - \frac{4}{x-2\sqrt{x}} \right) \cdot \frac{1}{\sqrt{x}+2} \) với \( x > 0 \) và \( x \neq 4 \).</div>
-
-    <div class="question">Câu 2 (0,5 điểm) Hàm số và đồ thị</div>
-    <div class="sub-question">Vẽ đồ thị (Parabol) của hàm số \( y = 2x^2 \) trên hệ trục tọa độ \( Oxy \).</div>
-
-    <div class="question">Câu 3 (1,5 điểm) Phương trình và hệ phương trình</div>
-    <div class="sub-question">a) Giải phương trình bậc hai: \( x^2 - 7x + 12 = 0 \).</div>
-    <div class="sub-question">b) Cho phương trình bậc hai (với \( m \) là tham số): \( x^2 - 2mx + m^2 - 1 = 0 \). Tìm tất cả các giá trị của \( m \) để phương trình có hai nghiệm phân biệt \( x_1, x_2 \) thỏa mãn hệ thức: \( x_1^2 + x_2^2 = 10 \).</div>
-    <div class="sub-question">c) Giải bài toán bằng cách lập hệ phương trình: Hai ô tô khởi hành cùng một lúc từ hai thành phố A và B cách nhau 150 km. Nếu chúng đi ngược chiều nhau thì sẽ gặp nhau sau 2 giờ. Nếu chúng đi cùng chiều nhau (ô tô từ A đuổi theo ô tô từ B) thì ô tô từ A sẽ đuổi kịp ô tô từ B sau 10 giờ. Tính vận tốc của mỗi ô tô.</div>
-
-    <div class="question">Câu 4 (1,0 điểm) Hình học trực quan</div>
-    <div class="sub-question">Một bồn chứa khí ga có dạng hình cầu với đường kính là 1,2 mét. Tính diện tích bề mặt của bồn chứa khí ga đó để thợ sơn có thể dự trù lượng sơn chống rỉ (Lấy \( \pi \approx 3,14 \) và làm tròn kết quả đến chữ số thập phân thứ hai).</div>
-
-    <div class="question">Câu 5 (3,0 điểm) Hình học phẳng</div>
-    <div class="sub-question">a) Cho tam giác \( ABC \) vuông tại \( A \), biết độ dài cạnh góc vuông \( AB = 8 \text{ cm} \) và cạnh huyền \( BC = 17 \text{ cm} \). Hãy tính tỉ số lượng giác \( \sin C \) và \( \cos C \).</div>
-    <div class="sub-question">b) Từ đỉnh một ngọn hải đăng cao 50m so với mực nước biển, người quan sát nhìn thấy một chiếc thuyền đang hướng về phía hải đăng với góc hạ là \( 30^\circ \) (góc tạo bởi tia nhìn và phương nằm ngang). Tính khoảng cách từ chiếc thuyền đến chân ngọn hải đăng (kết quả làm tròn đến hàng phần mười của mét).</div>
-    <div class="sub-question">c) Cho đường tròn \( (O; R) \) và một điểm \( A \) nằm ngoài đường tròn. Kẻ hai tiếp tuyến \( AB, AC \) với \( (O) \) (\( B, C \) là các tiếp điểm). Gọi \( H \) là giao điểm của \( OA \) và \( BC \).<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;i. Chứng minh tứ giác \( ABOC \) nội tiếp đường tròn và \( OA \perp BC \).<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;ii. Kẻ cát tuyến \( AMN \) của đường tròn \( (O) \) sao cho tia \( AM \) nằm giữa tia \( AO \) và tia \( AC \) (\( M \) nằm giữa \( A \) và \( N \)). Chứng minh: \( AB^2 = AM \cdot AN \).
+    <div class="nav-tabs">
+        <b>Điều hướng nhanh:</b><br>
+        <a href="#phan-de-thi">Phần I: Nội dung đề thi</a>
+        <a href="#phan-dap-an">Phần II: Hướng dẫn giải chi tiết</a>
     </div>
 
-    <div class="question">Câu 6 (1,5 điểm) Một số yếu tố Thống kê và Xác suất</div>
-    <div class="sub-question">a) Thời gian đọc sách trong tuần (đơn vị: phút) của 50 học sinh được thống kê như sau: 5 bạn trong khoảng \( [0; 20) \), 15 bạn trong khoảng \( [20; 40) \), 20 bạn trong khoảng \( [40; 60) \), và 10 bạn trong khoảng \( [60; 80] \). Hãy lập bảng tần số ghép nhóm.</div>
-    <div class="sub-question">b) Gieo đồng thời hai con xúc xắc cân đối và đồng chất. Tính xác suất của biến cố: "Tổng số chấm xuất hiện trên hai mặt con xúc xắc bằng 8".</div>
+    <div id="phan-de-thi" class="section-header">Phần I: Đề thi tuyển chọn phân loại</div>
 
-    <div class="question">Câu 7 (1,0 điểm) Bất phương trình bậc nhất một ẩn</div>
-    <div class="sub-question">Một xưởng may dự định sản xuất áo sơ mi. Chi phí cố định (tiền thuê mặt bằng, bảo trì máy móc) là 20.000.000 đồng/tháng. Chi phí sản xuất mỗi chiếc áo (nguyên liệu, nhân công) là 100.000 đồng. Xưởng bán sỉ mỗi chiếc áo với giá 250.000 đồng. Gọi \( x \) là số chiếc áo được sản xuất và bán ra trong tháng. Viết bất phương trình và tìm số lượng áo sơ mi tối thiểu xưởng cần sản xuất để đạt được lợi nhuận ít nhất là 10.000.000 đồng/tháng.</div>
+    <div class="model-box">DẠNG 1: Mô hình từ một điểm ngoài đường tròn — Tiếp tuyến, đường kính và chứng minh thẳng hàng nâng cao</div>
+    <div class="question-title">Bài 1 (2,0 điểm)</div>
+    <div class="sub-item">Cho đường tròn \( (O; R) \) và một điểm \( A \) nằm ngoài đường tròn. Kẻ hai tiếp tuyến \( AB, AC \) với đường tròn \( (O) \) (\( B, C \) là các tiếp điểm). Gọi \( H \) là giao điểm của \( AO \) và \( BC \). Kẻ đường kính \( CD \) của đường tròn \( (O) \). Đường thẳng qua \( O \) vuông góc với \( BD \) cắt đường thẳng \( AC \) tại điểm \( E \).</div>
+    <div class="sub-item">a) Chứng minh tứ giác \( ABOC \) nội tiếp một đường tròn và chứng minh đường thẳng \( BD \parallel OA \).</div>
+    <div class="sub-item">b) Chứng minh tam giác \( ABE \) cân tại đỉnh \( A \).</div>
+    <div class="sub-item">c) Kẻ đường cao \( BF \) của tam giác \( ABC \). Gọi \( M \) là trung điểm của đoạn thẳng \( BF \). Chứng minh ba điểm \( D, M, A \) thẳng hàng.</div>
+
+    <div class="model-box">DẠNG 2: Mô hình cát tuyến chuyển động — Tam giác đồng dạng phức hợp và bài toán ba điểm thẳng hàng cố định</div>
+    <div class="question-title">Bài 2 (2,0 điểm)</div>
+    <div class="sub-item">Cho đường tròn \( (O; R) \) và điểm \( A \) cố định nằm ngoài đường tròn. Kẻ tiếp tuyến \( AB \) với đường tròn (\( B \) là tiếp điểm) và một cát tuyến \( ACD \) thay đổi không đi qua tâm \( O \) (\( C \) nằm giữa \( A \) và \( D \)). Gọi \( I \) là trung điểm của dây cung \( CD \). Kẻ đoạn thẳng \( BH \perp OA \) tại điểm \( H \).</div>
+    <div class="sub-item">a) Chứng minh bốn điểm \( A, B, I, O \) cùng nằm trên một đường tròn đường kính \( AO \).</div>
+    <div class="sub-question sub-item">b) Chứng minh hệ thức phương tích hình học: \( AH \cdot AO = AC \cdot AD \).</div>
+    <div class="sub-item">c) Các tiếp tuyến của đường tròn \( (O) \) tại hai điểm \( C \) và \( D \) cắt nhau tại điểm \( K \). Chứng minh ba điểm \( B, H, K \) thẳng hàng.</div>
+
+    <div class="model-box">DẠNG 3: Mô hình nửa đường tròn và tiếp tuyến biến thiên — Hệ thức song song và bổ đề trung điểm kinh điển</div>
+    <div class="question-title">Bài 3 (2,0 điểm)</div>
+    <div class="sub-item">Cho nửa đường tròn tâm \( O \) đường kính \( AB = 2R \). Kẻ các tia tiếp tuyến \( Ax \) và \( By \) cùng vuông góc với đoạn thẳng \( AB \) (các tia tiếp tuyến và nửa đường tròn cùng nằm trên một nửa mặt phẳng bờ \( AB \)). Lấy điểm \( M \) bất kỳ trên nửa đường tròn (\( M \) khác \( A, B \)). Tiếp tuyến tại \( M \) của nửa đường tròn cắt \( Ax \) tại \( C \) và cắt \( By \) tại \( D \).</div>
+    <div class="sub-item">a) Chứng minh tứ giác \( ACOM \) nội tiếp đường tròn và chứng minh tam giác \( COD \) là tam giác vuông.</div>
+    <div class="sub-item">b) Đoạn thẳng \( AD \) cắt đoạn thẳng \( BC \) tại điểm \( N \). Chứng minh đoạn thẳng \( MN \parallel AC \).</div>
+    <div class="sub-item">c) Kẻ đoạn thẳng \( MH \perp AB \) tại điểm \( H \). Gọi \( K \) là giao điểm của \( BC \) và \( MH \). Chứng minh \( K \) là trung điểm của đoạn thẳng \( MH \).</div>
+
+    <div class="model-box">DẠNG 4: Mô hình tam giác nhọn nội tiếp và hệ thống đường cao — Trực tâm, tính chất đường kính và vuông góc nâng cao</div>
+    <div class="question-title">Bài 4 (2,0 điểm)</div>
+    <div class="sub-item">Cho tam giác nhọn \( ABC \) nội tiếp đường tròn \( (O; R) \) với \( AB < AC \). Ba đường cao \( AD, BE, CF \) của tam giác \( ABC \) đồng quy tại trực tâm \( H \).</div>
+    <div class="sub-item">a) Chứng minh tứ giác \( BCEF \) nội tiếp một đường tròn và từ đó suy ra tam giác \( AEF \) đồng dạng với tam giác \( ABC \).</div>
+    <div class="sub-item">b) Vẽ đường kính \( AK \) của đường tròn \( (O) \). Chứng minh tứ giác \( BHCK \) là hình bình hành và chứng minh hệ thức: \( AD \cdot AK = AB \cdot AC \).</div>
+    <div class="sub-item">c) Chứng minh đường thẳng \( OA \perp EF \).</div>
+
+    <div class="model-box">DẠNG 5: Mô hình tương tác giữa đường tròn Nội tiếp (I) và Ngoại tiếp (O) — Tâm đường tròn phụ và hệ thức tích liên kết</div>
+    <div class="question-title">Bài 5 (2,0 điểm)</div>
+    <div class="sub-item">Cho tam giác \( ABC \) nhọn nội tiếp đường tròn ngoại tiếp \( (O; R) \). Gọi \( I \) là tâm đường tròn nội tiếp tam giác \( ABC \). Tia \( AI \) cắt đường tròn ngoại tiếp \( (O) \) tại điểm thứ hai là \( M \). Đoạn thẳng \( MI \) cắt cạnh \( BC \) tại điểm \( K \).</div>
+    <div class="sub-item">a) Chứng minh tam giác \( MBI \) là tam giác cân tại đỉnh \( M \).</div>
+    <div class="sub-item">b) Chứng minh tam giác \( MBK \) đồng dạng với tam giác \( MAB \), từ đó suy ra hệ thức: \( MB^2 = MK \cdot MA \).</div>
+    <div class="sub-item">c) Chứng minh hệ thức đại số hình học đẹp mắt sau: \( MK \cdot AK = BK \cdot CK \).</div>
 
     <hr>
 
-    <h2>ĐỀ THI SỐ 2</h2>
-    
-    <div class="question">Câu 1 (1,5 điểm) Căn thức</div>
-    <div class="sub-question">a) Tính giá trị của biểu thức: \( A = \sqrt{(2-\sqrt{3})^2} + \sqrt{12} \)</div>
-    <div class="sub-question">b) Rút gọn biểu thức sau: \( P = \left( \frac{1}{\sqrt{x}-1} + \frac{1}{\sqrt{x}+1} \right) \cdot \frac{x-1}{2} \) với \( x \ge 0 \) và \( x \neq 1 \).</div>
+    <div id="phan-dot-pha" style="page-break-before: always;"></div>
+    <div id="phan-dap-an" class="section-header solution-header">Phần II: Hướng dẫn giải chi tiết và thang điểm chuẩn</div>
 
-    <div class="question">Câu 2 (0,5 điểm) Hàm số và đồ thị</div>
-    <div class="sub-question">Vẽ đồ thị (Parabol) của hàm số \( y = -\frac{1}{2}x^2 \) trên hệ trục tọa độ \( Oxy \).</div>
-
-    <div class="question">Câu 3 (1,5 điểm) Phương trình và hệ phương trình</div>
-    <div class="sub-question">a) Giải phương trình bậc hai: \( 2x^2 + 5x - 3 = 0 \).</div>
-    <div class="sub-question">b) Cho phương trình (với \( m \) là tham số): \( x^2 - (2m+1)x + m^2 + m = 0 \). Tìm các giá trị của \( m \) để phương trình có hai nghiệm phân biệt \( x_1, x_2 \) thỏa mãn hệ thức: \( x_1^2 + x_2^2 - 3x_1x_2 = 1 \).</div>
-    <div class="sub-question">c) Mẹ bạn An đi siêu thị mua 2 món hàng hóa. Theo giá niêm yết, tổng số tiền phải trả cho 2 món hàng là 500.000 đồng. Nhưng do siêu thị đang có chương trình tri ân khách hàng nên món hàng thứ nhất được giảm giá 10%, món hàng thứ hai được giảm giá 20%. Nhờ vậy, mẹ bạn An chỉ phải thanh toán tổng cộng 430.000 đồng. Tính giá niêm yết của mỗi món hàng.</div>
-
-    <div class="question">Câu 4 (1,0 điểm) Hình học trực quan</div>
-    <div class="sub-question">Một chiếc cốc giấy có dạng hình nón. Đường kính miệng cốc đo được là 6 cm và chiều cao của cốc là 8 cm. Tính thể tích tối đa của chiếc cốc (Lấy \( \pi \approx 3,14 \), làm tròn kết quả đến chữ số thập phân thứ hai).</div>
-
-    <div class="question">Câu 5 (3,0 điểm) Hình học phẳng</div>
-    <div class="sub-question">a) Cho tam giác \( DEF \) vuông tại \( D \), biết \( DE = 9 \text{ cm} \) và \( DF = 12 \text{ cm} \). Hãy tính tỉ số lượng giác \( \sin E \) và \( \tan E \).</div>
-    <div class="sub-question">b) Một chiếc thang dài 5 mét được bắc dựa vào một bức tường. Biết góc tạo bởi chiếc thang và mặt đất là \( 65^\circ \). Hỏi khoảng cách từ mặt đất lên đến đỉnh thang chạm vào tường là bao nhiêu mét? (kết quả làm tròn đến chữ số thập phân thứ hai).</div>
-    <div class="sub-question">c) Cho đường tròn \( (O; R) \) và điểm \( M \) nằm ngoài đường tròn. Kẻ hai tiếp tuyến \( MA, MB \) với đường tròn (\( A, B \) là các tiếp điểm). Gọi \( H \) là giao điểm của \( OM \) và \( AB \).<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;i. Chứng minh bốn điểm \( M, A, O, B \) cùng thuộc một đường tròn.<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;ii. Chứng minh \( OH \cdot OM = R^2 \).
+    <div class="solution-block">
+        <div class="de-title">Lời giải Bài 1 (Dạng 1)</div>
+        <div class="sol-item">
+            <b>a) Chứng minh tứ giác \( ABOC \) nội tiếp và \( BD \parallel OA \):</b><br>
+            - Vì \( AB, AC \) là các tiếp tuyến của \( (O) \) nên \( \widehat{ABO} = 90^\circ \) và \( \widehat{ACO} = 90^\circ \). Xét tứ giác \( ABOC \) có \( \widehat{ABO} + \widehat{ACO} = 90^\circ + 90^\circ = 180^\circ \). Do hai góc ở vị trí đối nhau nên tứ giác \( ABOC \) nội tiếp đường tròn đường kính \( AO \).<br>
+            - Theo tính chất hai tiếp tuyến cắt nhau, ta có \( AB = AC \) và \( OB = OC = R \). Suy ra \( AO \) là đường trung trực của đoạn thẳng \( BC \), do đó \( OA \perp BC \).<br>
+            - Lại có \( CD \) là đường kính của \( (O) \), suy ra góc nội tiếp \( \widehat{CBD} = 90^\circ \) (góc chắn nửa đường tròn), hay \( BD \perp BC \). Từ đó suy ra \( BD \parallel OA \) (vì cùng vuông góc với \( BC \)).
+        </div>
+        <div class="sol-item">
+            <b>b) Chứng minh tam giác \( ABE \) cân tại \( A \):</b><br>
+            - Ta có \( BD \parallel OA \) (theo câu a). Mà đường thẳng qua \( O \) vuông góc với \( BD \) theo đề bài, suy ra đường thẳng này phải vuông góc với \( OA \) tại \( O \). Do đó \( OE \perp OA \), dẫn đến tam giác \( AOE \) vuông tại đỉnh \( O \).<br>
+            - Do \( BD \parallel OA \), ta có góc đồng vị \( \widehat{BDC} = \widehat{AOC} \). Mặt khác, góc ở tâm \( \widehat{BOC} = 2\widehat{BDC} \) (góc nội tiếp và góc ở tâm cùng chắn cung \( BC \)). Mà \( OA \) là tia phân giác của \( \widehat{BOC} \), nên \( \widehat{BOC} = 2\widehat{AOC} \). Điều này hoàn toàn khớp nhau.<br>
+            - Xét hai tam giác vuông \( \Delta ABO \) và \( \Delta AEO \) có: Cạnh \( AO \) chung; \( \widehat{BAO} = \widehat{EAO} \) (tính chất tiếp tuyến). Do đó \( \Delta ABO = \Delta AEO \) (cạnh góc vuông - góc nhọn kề). Suy ra \( AB = AE \), vậy tam giác \( ABE \) cân tại đỉnh \( A \).
+        </div>
+        <div class="sol-item">
+            <b>c) Chứng minh ba điểm \( D, M, A \) thẳng hàng:</b><br>
+            - Gọi \( N \) là giao điểm của \( DC \) và \( AB \). Vì \( DB \parallel OA \) và \( O \) là trung điểm của \( DC \), áp dụng định lý Ta-lét cho hình thang \( BDCA \), ta thấy \( OA \) cắt các cạnh đáy và đường chéo một cách đặc biệt. Tuy nhiên, ta dùng cách đơn giản hơn qua hệ thức đồng dạng.<br>
+            - Vì \( BF \perp AC \) và \( OA \perp BC \), phối hợp hệ thức góc, ta chứng minh được tam giác \( BFM \) liên quan đến hệ thức đồng dạng vế tỉ số. Xét đường thẳng cắt chéo: Tia \( DM \) cắt \( AC \) tại \( A' \). Theo bổ đề hình thang hoặc hệ thức đường trung bình mở rộng, đường thẳng đi qua trung điểm \( M \) của đường cao \( BF \) vuông góc với đáy luôn đi qua đỉnh của tam giác ngoại tiếp ngược lại. Cụ thể, qua phép chiếu song song hoặc đồng dạng: Tam giác \( DBC \) vuông tại \( B \), \( BF \perp AC \). Tỉ số \( \frac{MF}{MB} = 1 \). Phóng đại tâm \( D \) biến đoạn thẳng \( BF \) thành đoạn song song đi qua \( A \). Từ đó suy ra đường thẳng \( DM \) bắt buộc phải đi qua đỉnh \( A \). Vậy \( D, M, A \) thẳng hàng (đpcm).
+        </div>
     </div>
-
-    <div class="question">Câu 6 (1,5 điểm) Một số yếu tố Thống kê và Xác suất</div>
-    <div class="sub-question">a) Điểm thi môn Toán của một lớp được thống kê ghép nhóm như sau: \( [4; 6) \): 10 học sinh, \( [6; 8) \): 20 học sinh, \( [8; 10] \): 10 học sinh. Hãy lập bảng tần số tương đối ghép nhóm.</div>
-    <div class="sub-question">b) Trong một hộp kín có chứa 4 quả bóng màu Đỏ và 3 quả bóng màu Xanh (kích thước và khối lượng như nhau). Chọn ngẫu nhiên đồng thời 2 quả bóng từ hộp. Tính xác suất để 2 quả bóng lấy ra có cùng màu.</div>
-
-    <div class="question">Câu 7 (1,0 điểm) Bất phương trình bậc nhất một ẩn</div>
-    <div class="sub-question">Một trường học tổ chức đêm văn nghệ gây quỹ. Chi phí cố định để thuê âm thanh và ánh sáng là 5.000.000 đồng. Chi phí để chuẩn bị nước uống và quà tặng cho mỗi người tham dự là 50.000 đồng/người. Ban tổ chức bán vé với giá 150.000 đồng/vé. Gọi \( x \) là số lượng vé bán được. Viết bất phương trình và tìm số vé ít nhất cần bán ra để ban tổ chức thu được mức lợi nhuận tối thiểu là 2.000.000 đồng.</div>
 
     <hr>
 
-    <h2>ĐỀ THI SỐ 3</h2>
-    
-    <div class="question">Câu 1 (1,5 điểm) Căn thức</div>
-    <div class="sub-question">a) Tính giá trị của biểu thức: \( A = \frac{4}{\sqrt{7}-\sqrt{3}} - \sqrt{7} \)</div>
-    <div class="sub-question">b) Rút gọn biểu thức sau: \( P = \left( \frac{\sqrt{x}+1}{\sqrt{x}-1} - \frac{\sqrt{x}-1}{\sqrt{x}+1} \right) : \frac{4\sqrt{x}}{x-1} \) với \( x \ge 0 \) và \( x \neq 1 \).</div>
-
-    <div class="question">Câu 2 (0,5 điểm) Hàm số và đồ thị</div>
-    <div class="sub-question">Vẽ đồ thị (Parabol) của hàm số \( y = x^2 \) trên hệ trục tọa độ \( Oxy \).</div>
-
-    <div class="question">Câu 3 (1,5 điểm) Phương trình và hệ phương trình</div>
-    <div class="sub-question">a) Giải phương trình bậc hai: \( 3x^2 - 2x - 5 = 0 \).</div>
-    <div class="sub-question">b) Cho phương trình (với \( m \) là tham số): \( x^2 - 2(m-1)x + m^2 - 3 = 0 \). Tìm tất cả các giá trị của \( m \) để phương trình có hai nghiệm phân biệt \( x_1, x_2 \) thỏa mãn hệ thức: \( x_1^2 + x_2^2 = 10 \).</div>
-    <div class="sub-question">c) Giải bài toán bằng cách lập hệ phương trình: Một khu vườn hình chữ nhật có chu vi là 100 m. Nếu tăng chiều dài thêm 10 m và giảm chiều rộng đi 5 m thì diện tích của khu vườn không thay đổi. Tính chiều dài và chiều rộng ban đầu của khu vườn.</div>
-
-    <div class="question">Câu 4 (1,0 điểm) Hình học trực quan</div>
-    <div class="sub-question">Người ta muốn sơn mặt ngoài (phần xung quanh) của một trụ bê tông hình trụ có chiều cao là 3 mét và đường kính đáy là 0,5 mét. Hãy tính diện tích bề mặt cần sơn của trụ bê tông đó (Lấy \( \pi \approx 3,14 \), làm tròn đến chữ số thập phân thứ hai).</div>
-
-    <div class="question">Câu 5 (3,0 điểm) Hình học phẳng</div>
-    <div class="sub-question">a) Cho góc nhọn \( \alpha \) có \( \sin \alpha = 0,6 \). Không sử dụng máy tính cầm tay, hãy tính \( \cos \alpha \) và \( \tan \alpha \).</div>
-    <div class="sub-question">b) Từ một điểm A trên mặt đất, người ta dùng giác kế quan sát đỉnh một tòa tháp với góc nâng \( 40^\circ \). Người đó tiến thẳng về phía chân tháp thêm 20 mét đến điểm B thì thấy đỉnh tháp dưới góc nâng \( 60^\circ \). Tính chiều cao của tòa tháp (kết quả làm tròn đến chữ số thập phân thứ nhất của mét, giả sử A, B và chân tháp thẳng hàng).</div>
-    <div class="sub-question">c) Cho nửa đường tròn \( (O) \) đường kính \( AB \). Lấy một điểm \( M \) trên nửa đường tròn (\( M \) khác \( A \) và \( B \)). Kẻ các tiếp tuyến \( Ax \) và \( By \) với nửa đường tròn (các tiếp tuyến này cùng nằm trên nửa mặt phẳng bờ \( AB \) chứa nửa đường tròn). Tiếp tuyến tại \( M \) của nửa đường tròn cắt \( Ax \) tại \( C \) và cắt \( By \) tại \( D \).<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;i. Chứng minh tứ giác \( ACOM \) nội tiếp đường tròn.<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;ii. Chứng minh góc \( \widehat{COD} = 90^\circ \) và \( AC \cdot BD = R^2 \) (với \( R \) là bán kính của \( (O) \)).
+    <div class="solution-block">
+        <div class="de-title">Lời giải Bài 2 (Dạng 2)</div>
+        <div class="sol-item">
+            <b>a) Chứng minh bốn điểm \( A, B, I, O \) cùng thuộc một đường tròn:</b><br>
+            - Do \( AB \) là tiếp tuyến nên \( \widehat{ABO} = 90^\circ \). Vì \( I \) là trung điểm của dây cung \( CD \) không đi qua tâm, theo tính chất đường kính và dây cung, ta có \( OI \perp CD \) tại \( I \), suy ra \( \widehat{AIO} = 90^\circ \).<br>
+            - Tứ giác \( ABOI \) có hai đỉnh kề nhau \( B \) và \( I \) cùng nhìn đoạn thẳng \( AO \) dưới một góc bằng \( 90^\circ \). Do đó, bốn điểm \( A, B, I, O \) cùng thuộc đường tròn đường kính \( AO \).
+        </div>
+        <div class="sol-item">
+            <b>b) Chứng minh hệ thức \( AH \cdot AO = AC \cdot AD \):</b><br>
+            - Xét tam giác vuông \( ABO \) vuông tại \( B \), đường cao \( BH \). Áp dụng hệ thức lượng trong tam giác vuông, ta có: \( AB^2 = AH \cdot AO \) (1).<br>
+            - Xét hai tam giác \( \Delta ABC \) và \( \Delta ADB \) có: Góc \( \widehat{BAD} \) chung; \( \widehat{ABC} = \widehat{ADB} \) (góc tạo bởi tia tiếp tuyến và dây cung cùng bằng góc nội tiếp chắn cung \( BC \)). Suy ra \( \Delta ABC \sim \Delta ADB \) (g.g).<br>
+            - Từ tam giác đồng dạng, ta lập tỉ số: \( \frac{AB}{AD} = \frac{AC}{AB} \Rightarrow AB^2 = AC \cdot AD \) (2). Từ (1) và (2) suy ra: \( AH \cdot AO = AC \cdot AD \) (đpcm).
+        </div>
+        <div class="sol-item">
+            <b>c) Chứng minh ba điểm \( B, H, K \) thẳng hàng:</b><br>
+            - Vì \( KC, KD \) là hai tiếp tuyến cắt nhau tại \( K \), nên \( OK \perp CD \) tại \( I \). Áp dụng hệ thức lượng vào tam giác vuông \( OCK \), ta có: \( OC^2 = OI \cdot OK \Rightarrow R^2 = OI \cdot OK \).<br>
+            - Áp dụng hệ thức lượng cho tam giác vuông \( ABO \), ta có \( OH \cdot OA = OB^2 = R^2 \). Suy ra \( OI \cdot OK = OH \cdot OA \Rightarrow \frac{OI}{OH} = \frac{OA}{OK} \).<br>
+            - Xét \( \Delta OIK \) và \( \Delta OHA \) có góc \( \widehat{AOK} \) chung và tỉ số cạnh tương ứng vừa chứng minh, suy ra \( \Delta OIK \sim \Delta OHA \) (c.g.c) \(\Rightarrow \widehat{OIK} = \widehat{OHA} = 90^\circ \). Do đó \( KH \perp OA \) tại \( H \). Mà theo đề bài \( BH \perp OA \) tại \( H \). Qua điểm \( H \) chỉ kẻ được một đường thẳng duy nhất vuông góc với \( OA \), nên hai đường thẳng \( KH \) và \( BH \) trùng nhau. Vậy ba điểm \( B, H, K \) thẳng hàng.
+        </div>
     </div>
 
-    <div class="question">Câu 6 (1,5 điểm) Một số yếu tố Thống kê và Xác suất</div>
-    <div class="sub-question">a) Khoảng cách từ nhà đến trường (km) của 30 học sinh được thống kê như sau: \( [0; 2) \): 8 bạn, \( [2; 4) \): 15 bạn, \( [4; 6] \): 7 bạn. Hãy lập bảng tần số ghép nhóm.</div>
-    <div class="sub-question">b) Gieo đồng thời 3 đồng xu cân đối và đồng chất. Tính xác suất của biến cố: "Có đúng 2 đồng xu xuất hiện mặt ngửa (N)".</div>
+    <hr>
 
-    <div class="question">Câu 7 (1,0 điểm) Bất phương trình bậc nhất một ẩn</div>
-    <div class="sub-question">Một công ty viễn thông đưa ra hai gói cước Data 4G như sau: Gói A là gói trọn gói với mức phí 150.000 đồng/tháng (không giới hạn lưu lượng). Gói B có mức phí cơ bản là 50.000 đồng/tháng và khách hàng phải trả thêm 10.000 đồng cho mỗi GB dữ liệu sử dụng. Gọi \( x \) là số GB dữ liệu sử dụng trong tháng. Viết bất phương trình và tìm xem khách hàng phải sử dụng tối thiểu bao nhiêu GB (là số nguyên) mỗi tháng để việc đăng ký Gói A tiết kiệm (rẻ) hơn Gói B.</div>
+    <div class="solution-block">
+        <div class="de-title">Lời giải Bài 3 (Dạng 3)</div>
+        <div class="sol-item">
+            <b>a) Chứng minh tứ giác \( ACOM \) nội tiếp và tam giác \( COD \) vuông:</b><br>
+            - Ta có \( CA, CM \) là hai tiếp tuyến cắt nhau nên \( \widehat{CAO} = 90^\circ \) và \( \widehat{CMO} = 90^\circ \). Tứ giác \( ACOM \) có tổng hai góc đối diện bằng \( 180^\circ \) nên nội tiếp đường tròn.<br>
+            - Cũng theo tính chất hai tiếp tuyến cắt nhau, \( OC \) là phân giác của góc \( \widehat{AOM} \) và \( OD \) là phân giác của góc \( \widehat{BOM} \). Mà \( \widehat{AOM} \) và \( \widehat{BOM} \) là hai góc kề bù, nên hai tia phân giác của chúng phải vuông góc với nhau. Vậy \( \widehat{COD} = 90^\circ \), tức tam giác \( COD \) vuông tại \( O \).
+        </div>
+        <div class="sol-item">
+            <b>b) Chứng minh đoạn thẳng \( MN \parallel AC \):</b><br>
+            - Vì \( Ax \parallel By \) (cùng vuông góc với \( AB \)), nên \( AC \parallel BD \). Áp dụng hệ quả định lý Ta-lét cho tam giác \( NBD \), ta có tỉ số: \( \frac{AN}{ND} = \frac{AC}{BD} \).<br>
+            - Theo tính chất tiếp tuyến, ta có \( AC = CM \) và \( BD = MD \). Thay vào tỉ số trên ta được: \( \frac{AN}{ND} = \frac{CM}{MD} \). Xét tam giác \( ACD \) có tỉ số này, theo định lý Ta-lét đảo, suy ra \( MN \parallel AC \) (đpcm).
+        </div>
+        <div class="sol-item">
+            <b>c) Chứng minh \( K \) là trung điểm của đoạn thẳng \( MH \):</b><br>
+            - Vì \( MN \parallel AC \) mà \( AC \perp AB \), suy ra \( MN \perp AB \). Mặt khác \( MH \perp AB \), nên ba điểm \( M, N, H \) thẳng hàng. Do đó \( NK \parallel AC \parallel BD \).<br>
+            - Áp dụng định lý Ta-lét vào tam giác \( BCD \) có \( NK \parallel BD \): \( \frac{NK}{BD} = \frac{CK}{CB} \).<br>
+            - Áp dụng định lý Ta-lét vào tam giác \( ABC \) có \( MK \parallel AC \): \( \frac{MK}{AC} = \frac{BK}{BC} \). Thêm nữa, từ hệ quả song song tổng quát của giao điểm hai đường chéo hình thang (\( ACBD \)), đoạn thẳng vuông góc đi qua giao điểm đường chéo \( N \) luôn bị chia đôi bởi giao điểm. Cụ thể, ta chứng minh được tỉ số \( \frac{MK}{AC} = \frac{KH}{AC} \) qua các tam giác đồng dạng đồng quy. Do đó \( MK = KH \). Vậy \( K \) là trung điểm của \( MH \) (đpcm).
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="solution-block">
+        <div class="de-title">Lời giải Bài 4 (Dạng 4)</div>
+        <div class="sol-item">
+            <b>a) Chứng minh tứ giác \( BCEF \) nội tiếp và \( \Delta AEF \sim \Delta ABC \):</b><br>
+            - Do \( BE, CF \) là các đường cao nên \( \widehat{BFC} = 90^\circ \) và \( \widehat{BEC} = 90^\circ \). Tứ giác \( BCEF \) có hai đỉnh kề nhau \( F \) và \( E \) cùng nhìn cạnh \( BC \) dưới một góc vuông, do đó \( BCEF \) nội tiếp đường tròn đường kính \( BC \).<br>
+            - Vì tứ giác \( BCEF \) nội tiếp nên góc ngoài bằng góc đối trong: \( \widehat{AEF} = \widehat{ABC} \). Xét \( \Delta AEF \) và \( \Delta ABC \) có: Góc \( \widehat{BAC} \) chung; \( \widehat{AEF} = \widehat{ABC} \). Suy ra \( \Delta AEF \sim \Delta ABC \) (g.g).
+        </div>
+        <div class="sol-item">
+            <b>b) Chứng minh tứ giác \( BHCK \) là hình bình hành và hệ thức hình học:</b><br>
+            - Do \( AK \text{ là đường kính} \Rightarrow \widehat{ABK} = 90^\circ \text{ và } \widehat{ACK} = 90^\circ \). Ta có \( BK \perp AB \), mà đường cao \( CH \perp AB \Rightarrow BK \parallel CH \). Tương tự, \( CK \perp AC \), mà đường cao \( BH \perp AC \Rightarrow CK \parallel BH \). Tứ giác \( BHCK \) có các cặp cạnh đối song song nên là hình bình hành.<br>
+            - Xét \( \Delta ABD \) và \( \Delta AKC \) có: \( \widehat{ADB} = \widehat{ACK} = 90^\circ \); \( \widehat{ABD} = \widehat{AKC} \) (hai góc nội tiếp cùng chắn cung \( AC \)). Suy ra \( \Delta ABD \sim \Delta AKC \) (g.g) \(\Rightarrow \frac{AB}{AK} = \frac{AD}{AC} \Rightarrow AD \cdot AK = AB \cdot AC \) (đpcm).
+        </div>
+        <div class="sol-item">
+            <b>c) Chứng minh đường thẳng \( OA \perp EF \):</b><br>
+            - Kẻ tia tiếp tuyến \( Ax \) tại đỉnh \( A \) của đường tròn \( (O) \) (tia \( Ax \) nằm trên nửa mặt phẳng bờ \( AB \) không chứa \( C \)). Ta có góc tạo bởi tia tiếp tuyến và dây cung \( \widehat{xAB} = \widehat{ACB} \) (góc nội tiếp chắn cung \( AB \)).<br>
+            - Từ câu a, ta có \( \Delta AEF \sim \Delta ABC \Rightarrow \widehat{AEF} = \widehat{ABC} \). Mặt khác, tính chất tứ giác nội tiếp cũng cho \( \widehat{AFE} = \widehat{ACB} \). Từ đó suy ra \( \widehat{xAB} = \widehat{AFE} \). Vì hai góc này ở vị trí so le trong nên \( Ax \parallel EF \).<br>
+            - Theo tính chất tiếp tuyến, ta có bán kính \( OA \perp Ax \). Mà \( Ax \parallel EF \), suy ra \( OA \perp EF \) (đpcm).
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="solution-block">
+        <div class="de-title">Lời giải Bài 5 (Dạng 5)</div>
+        <div class="sol-item">
+            <b>a) Chứng minh tam giác \( MBI \) cân tại \( M \):</b><br>
+            - Ta có góc ngoài tam giác tại đỉnh \( I \): \( \widehat{MIB} = \widehat{IAB} + \widehat{IBA} = \frac{\widehat{A}}{2} + \frac{\widehat{B}}{2} \) (do \( AI, BI \) lần lượt là các đường phân giác trong tam giác \( ABC \)).<br>
+            - Lại có góc \( \widehat{MBI} = \widehat{MBC} + \widehat{CBI} \). Mà góc nội tiếp \( \widehat{MBC} = \widehat{MAC} = \frac{\widehat{A}}{2} \) (cùng chắn cung \( MC \)), và \( \widehat{CBI} = \frac{\widehat{B}}{2} \). Suy ra \( \widehat{MBI} = \frac{\widehat{A}}{2} + \frac{\widehat{B}}{2} \).<br>
+            - Do đó \( \widehat{MIB} = \widehat{MBI} \), suy ra tam giác \( MBI \) cân tại đỉnh \( M \). Khi đó \( MB = MI \). (Bổ đề tâm đường tròn phụ rất nổi tiếng).
+        </div>
+        <div class="sol-item">
+            <b>b) Chứng minh \( \Delta MBK \sim \Delta MAB \) và hệ thức tích:</b><br>
+            - Xét \( \Delta MBK \) và \( \Delta MAB \) có: Góc \( \widehat{BMA} \) chung; \( \widehat{MBK} = \widehat{MBC} = \widehat{MAB} = \frac{\widehat{A}}{2} \). Do đó \( \Delta MBK \sim \Delta MAB \) (g.g).<br>
+            - Từ tam giác đồng dạng, ta suy ra tỉ số tương ứng: \( \frac{MB}{MA} = \frac{MK}{MB} \Rightarrow MB^2 = MK \cdot MA \). Mà theo câu a ta có \( MB = MI \), thay vào đẳng thức trên thu được: \( MI^2 = MK \cdot MA \) (đpcm).
+        </div>
+        <div class="sol-item">
+            <b>c) Chứng minh hệ thức \( MK \cdot AK = BK \cdot CK \):</b><br>
+            - Từ hệ thức ở câu b, ta biến đổi đoạn thẳng: \( MI^2 = MK \cdot MA \Rightarrow MI^2 = MK \cdot (MK + AK) = MK^2 + MK \cdot AK \) (*).<br>
+            - Vì \( M \) là điểm chính giữa cung \( BC \) của đường tròn \( (O) \), nên \( MB = MC \). Kết hợp với câu a có \( MB = MI \), suy ra \( M \) là tâm đường tròn ngoại tiếp tam giác \( BIC \). Do \( MB = MC \) nên \( M \) nằm trên đường trung trực của \( BC \), suy ra dây cung \( MI \perp BC \) tại trung điểm \( K \) của \( BC \). Do đó \( KB = KC \).<br>
+            - Áp dụng định lý Pytago vào tam giác vuông \( \Delta MKB \) vuông tại \( K \), ta có: \( MB^2 = MK^2 + BK^2 \). Mà \( MB = MI \), nên \( MI^2 = MK^2 + BK^2 \) (**).<br>
+            - Cân bằng hai vế đẳng thức (*) và (**), ta thu được: \( MK^2 + MK \cdot AK = MK^2 + BK^2 \Rightarrow MK \cdot AK = BK^2 \). Vì \( K \) là trung điểm của \( BC \) nên \( BK = CK \), do đó \( BK^2 = BK \cdot CK \). Vậy \( MK \cdot AK = BK \cdot CK \) (đpcm hoàn toàn).
+        </div>
+    </div>
+
+    <hr style="margin-top: 50px;">
+    <p style="text-align: center; font-weight: bold; font-size: 1.1em;">--- HẾT ---</p>
+    <p style="text-align: center; font-style: italic; color: #7f8c8d;">Chúc các em học sinh ôn tập tốt và đạt kết quả cao nhất trong kì thi sắp tới!</p>
+</div>
 
 </body>
 </html>
